@@ -4,7 +4,7 @@ document.getElementById('room01-title').textContent = "ROOM 1";
 document.getElementById('room01-description').textContent = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis nat";
 document.getElementById("image01-container").style.backgroundImage = "url('./Assets/poster01.png')"; 
 
-document.getElementById('room02-title').textContent = "ROOM 2)";
+document.getElementById('room02-title').textContent = "ROOM 2";
 document.getElementById('room02-description').textContent = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis nat";
 document.getElementById("image02-container").style.backgroundImage = "url('./Assets/poster02.png')"; 
 
