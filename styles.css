@@ -64,6 +64,7 @@ img {
 
 .cards_wrap .card_inner {
   background: #fff;
+  box-shadow: 0px 3px 22px 0px rgba(0,0,0,0.23);
 }
 
 .cards_wrap .card_top {
