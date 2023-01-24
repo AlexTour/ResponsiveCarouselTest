@@ -79,7 +79,11 @@ img {
 }
 
 .cards_wrap .card_bottom {
-  padding: 15px;
+  padding: 0px 20px 0px 20px;
+  text-align: center;
+  line-height: 1.33rem;
+  position: relative;
+  bottom: 40px;
 }
 
 .cards_wrap .card_bottom .card_category {
@@ -92,7 +96,7 @@ img {
 
 .cards_wrap .card_bottom .card_info {
   padding: 15px;
-  margin: 10px 0;
+  /*margin: 10px 0;*/
   /*border: 1px dashed #0071bc;*/
 }
 
