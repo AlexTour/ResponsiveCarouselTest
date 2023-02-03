@@ -71,6 +71,7 @@ model-viewer {
   font-weight: bold;
   position: absolute;
   z-index: 1;
+  bottom: 0px;
 }
 
 @keyframes circle {
