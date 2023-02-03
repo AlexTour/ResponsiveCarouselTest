@@ -19,7 +19,18 @@
           <div class="update-bar"></div>
       </div>
     </model-viewer>  
+    <button class="ResetButton" onclick="resetCameraPercent()">
+      Reset
+    </button>
     <script src="script.js"></script>
+    <script>
+      const mv = document.querySelector("#hotspot-camera-view");
+      function resetCameraPercent() {
+        mv.cameraOrbit = '45deg 60deg auto%' // -0.9488deg 87.92deg auto
+        mv.cameraTarget= '50m 0m 0m'
+        mv.fieldOfView = '45deg'
+      }
+    </script>
     <!-- Loads <model-viewer> for browsers: -->
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
   </body>
