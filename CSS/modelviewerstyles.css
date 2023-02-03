@@ -66,9 +66,10 @@ model-viewer {
   text-decoration: none;
   display: flex;
   font-size: 13px;
-  margin: 4px 2px;
+  margin: 10px 10px;
   cursor: pointer;
   font-weight: bold;
+  position: absolute;
 }
 
 @keyframes circle {
