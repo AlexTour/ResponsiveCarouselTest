@@ -14,7 +14,7 @@
         <img class="logo-responsive" id="logo" src="../Assets/dali-logo.png" alt="logo">
     </div>
     <!-- <model-viewer> HTML element -->
-    <model-viewer src="../Assets/3D/room06.glb" camera-controls poster="../Assets/poster06.png" shadow-intensity="1" max-camera-orbit="auto 90deg auto" min-camera-orbit="auto auto 5%">
+    <model-viewer src="../Assets/3D/room06.glb" id="modelviewer" camera-controls poster="../Assets/poster06.png" shadow-intensity="1" max-camera-orbit="auto 90deg auto" min-camera-orbit="auto auto 5%">
       <div class="progress-bar hide" slot="progress-bar">
           <div class="update-bar"></div>
       </div>
@@ -24,7 +24,7 @@
     </button>
     <script src="script.js"></script>
     <script>
-      const mv = document.querySelector("#hotspot-camera-view");
+      const mv = document.querySelector("modelviewer");
       function resetCameraPercent() {
         mv.cameraOrbit = '45deg 60deg auto%' // -0.9488deg 87.92deg auto
         mv.cameraTarget= '50m 0m 0m'
