@@ -55,6 +55,22 @@ model-viewer {
   transition: width 0.3s;
 }
 
+.ResetButton {
+  background-color: #424242;
+  border: 2px solid #424242;
+  color: white;
+  padding: 10px 32px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  display: flex;
+  font-size: 13px;
+  margin: 4px 2px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
 @keyframes circle {
   from { transform: translateX(-50%) rotate(0deg) translateX(50px) rotate(0deg); }
   to   { transform: translateX(-50%) rotate(360deg) translateX(50px) rotate(-360deg); }
