@@ -70,6 +70,7 @@ model-viewer {
   cursor: pointer;
   font-weight: bold;
   position: absolute;
+  z-index: 1;
 }
 
 @keyframes circle {
