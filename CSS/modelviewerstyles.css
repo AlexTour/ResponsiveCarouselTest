@@ -25,6 +25,70 @@ model-viewer {
   height: 90%;
 }
 
+.Hotspot {
+  background: #7c7c7c;
+  border-radius: 32px;
+  border: 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+  box-sizing: border-box;
+  cursor: pointer;
+  height: 24px;
+  /*padding: 8px;*/
+  position: relative;
+  transition: opacity 0.3s;
+  width: 24px;
+  font-size: 14px;
+  color: white;
+}
+
+.Hotspot:not([data-visible]) {
+  background: transparent;
+  border: 4px solid #fff;
+  box-shadow: none;
+  height: 32px;
+  pointer-events: none;
+  width: 32px;
+}
+
+.Hotspot:focus {
+  border: 4px solid rgb(0, 128, 200);
+  height: 32px;
+  outline: none;
+  width: 32px;
+}
+
+.Hotspot > * {
+  opacity: 1;
+  transform: translateY(-50%);
+}
+
+.HotspotAnnotation{
+  background: #7c7c7c;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+  color: rgb(255 255 255);
+  display: block;
+  font-family: Futura, Helvetica Neue, sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  /*left: calc(100% + 1em);*/
+  max-width: 100%; /*300*/
+  overflow-wrap: break-word;
+  padding: 0.5em 1em;
+  position: absolute;
+  /*top: 50%;*/
+  width: max-content;
+  /*transform: translate(-30%, 30px);
+  left: 130%;*/
+}
+
+.Hotspot:not([data-visible]) > * {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(calc(-50% + 4px));
+  transition: transform 0.3s, opacity 0.3s;
+}
+
 
 .progress-bar {
   display: block;
