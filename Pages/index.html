@@ -19,6 +19,9 @@
     </button>
     <!-- <model-viewer> HTML element -->
     <model-viewer src="../Assets/3D/room06.glb" id="modelviewer" camera-controls poster="../Assets/poster06.png" shadow-intensity="1" max-camera-orbit="auto 90deg auto" min-camera-orbit="auto auto 5%" interpolation-decay="200" max-field-of-view="60deg">
+      <button class="Hotspot" slot="hotspot-1" data-surface="0 2 18 23 25 0.493 0.124 0.383" data-orbit="-89.26deg 77.96deg 0.1603m" data-target="0.05m 0.01m 0.02m" data-visibility-attribute="visible">
+        <div class="HotspotAnnotation">Statue</div>
+      </button>
       <div class="progress-bar hide" slot="progress-bar">
           <div class="update-bar"></div>
       </div>
@@ -31,6 +34,19 @@
         mv.fieldOfView = 'auto'
       }
     </script>
+    <script type="module">
+      const modelViewer2 = document.querySelector("#modelviewer");
+      const annotationClicked = (annotation) => {
+        let dataset = annotation.dataset;
+        modelViewer2.cameraTarget = dataset.target;
+        modelViewer2.cameraOrbit = dataset.orbit;
+        modelViewer2.fieldOfView = '45deg';
+      }
+
+      modelViewer2.querySelectorAll('button').forEach((hotspot) => {
+      hotspot.addEventListener('click', () => annotationClicked(hotspot));
+    });
+</script>
     <!-- Loads <model-viewer> for browsers: -->
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
   </body>
