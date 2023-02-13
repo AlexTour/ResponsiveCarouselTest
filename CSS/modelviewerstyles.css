@@ -26,8 +26,8 @@ model-viewer {
 }
 
 .Hotspot {
-  background: #7c7c7c;
-  border-radius: 32px;
+  background: #ffffff;
+  /*border-radius: 32px;*/
   border: 0;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
   box-sizing: border-box;
@@ -36,9 +36,9 @@ model-viewer {
   /*padding: 8px;*/
   position: relative;
   transition: opacity 0.3s;
-  width: 24px;
+  /*width: 24px;*/
   font-size: 14px;
-  color: white;
+  color: rgb(66, 66, 66);
 }
 
 .Hotspot:not([data-visible]) {
