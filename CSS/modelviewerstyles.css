@@ -51,10 +51,9 @@ model-viewer {
 }
 
 .Hotspot:focus {
-  border: 4px solid rgb(0, 128, 200);
+  border: 4px solid rgb(228, 7, 21);
   height: 32px;
   outline: none;
-  width: 32px;
 }
 
 .Hotspot > * {
