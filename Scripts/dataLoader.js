@@ -1,10 +1,10 @@
 document.getElementById('logo').src = "Assets/dali-logo.png";
 
-document.getElementById('room01-title').textContent = "ROOM 1";
+document.getElementById('room01-title').textContent = "OG ROOM 1";
 document.getElementById('room01-description').textContent = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis nat";
 document.getElementById("image01-container").src = "./Assets/poster01.png"; 
 
-document.getElementById('room02-title').textContent = "ROOM 2";
+document.getElementById('room02-title').textContent = "OG ROOM 2";
 document.getElementById('room02-description').textContent = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis nat";
 document.getElementById("image02-container").src = "./Assets/poster02.png"; 
 
