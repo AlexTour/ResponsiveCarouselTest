@@ -8,7 +8,7 @@ document.getElementById('room02-title').textContent = "OG ROOM 2";
 document.getElementById('room02-description').textContent = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis nat";
 document.getElementById("image02-container").src = "./Assets/poster02.png"; 
 
-document.getElementById('room03-title').textContent = "ROOM 3";
+document.getElementById('room03-title').textContent = "OG ROOM 3";
 document.getElementById('room03-description').textContent = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis nat";
 document.getElementById("image03-container").src = "./Assets/poster03.png"; 
 
