@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head> 
+    <title>Dalí - Die virtuelle Ausstellung</title>
+     <link rel="icon" type="image/x-icon" href="../Assets/favicon.ico">
+    <meta charset="utf-8">
+    <meta name="description" content="&lt;model-viewer&gt; template">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link type="text/css" href="../CSS/modelviewerstyles.css" rel="stylesheet"/>
+    <!-- OPTIONAL: The :focus-visible polyfill removes the focus ring for some input types -->
+    <script src="https://unpkg.com/focus-visible@5.0.2/dist/focus-visible.js" defer></script>
+  </head>
+  <body>
+    <div class="logo-container">
+        <img class="logo-responsive" id="logo" src="../Assets/dali-logo.png" alt="logo">
+    </div>
+     <button class="ResetButton" onclick="resetCameraPercent()">
+      Reset
+    </button>
+    <!-- <model-viewer> HTML element -->
+    <model-viewer src="../Assets/3D/OG_R3.glb" id="modelviewer" camera-controls touch-action="none" disable-tap interaction-prompt="none" poster="../Assets/poster03.png" shadow-intensity="1" max-camera-orbit="auto 90deg auto" min-camera-orbit="auto auto 5%" cameraorbit="0.3184deg 75deg 0.3018m" interpolation-decay="200" max-field-of-view="45deg" min-field-of-view="25deg" field-of-view="45deg">
+      <div class="progress-bar hide" slot="progress-bar">
+          <div class="update-bar"></div>
+      </div>
+    </model-viewer>  
+    <script src="../Scripts/script.js"></script>
+    <script>
+      const mv = document.querySelector("#modelviewer");
+      function resetCameraPercent() {
+        mv.cameraTarget= '0m 0m 0m'
+        mv.cameraOrbit = '0.3184deg 75deg auto%'
+        mv.fieldOfView = '45deg'
+      }
+    </script>
+    <script type="module">
+      const modelViewer2 = document.querySelector("#modelviewer");
+      const annotationClicked = (annotation) => {
+        let dataset = annotation.dataset;
+        modelViewer2.cameraTarget = dataset.target;
+        modelViewer2.cameraOrbit = dataset.orbit;
+        modelViewer2.fieldOfView = '45deg';
+      }
+
+      modelViewer2.querySelectorAll('button').forEach((hotspot) => {
+      hotspot.addEventListener('click', () => annotationClicked(hotspot));
+    });
+</script>
+    <!-- Loads <model-viewer> for browsers: -->
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  </body>
+</html>
