@@ -45,9 +45,8 @@ model-viewer {
   background: transparent;
   border: 4px solid #fff;
   box-shadow: none;
-  height: 32px;
+  height: 24px;
   pointer-events: none;
-  width: 32px;
 }
 
 .Hotspot:focus {
