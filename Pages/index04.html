@@ -50,15 +50,26 @@
 
   // Wait for the model to finish loading
   modelViewer.addEventListener('load', async () => {
-    // Get the material with index 1
-    const material = modelViewer.model.materials[0];
-    const texture = await modelViewer.createTexture('../Assets/AsyncTextures/dali_OG_Jesus_DIFF_4K.jpeg');
+    // Get the material with index 0
+    const material1 = modelViewer.model.materials[0];
+    const texture1 = await modelViewer.createTexture('../Assets/AsyncTextures/dali_OG_Jesus_DIFF_4K.jpeg');
 
     // Set the texture on the material
-    material.pbrMetallicRoughness["baseColorTexture"].setTexture(texture);
+    material1.pbrMetallicRoughness["baseColorTexture"].setTexture(texture1);
     
     // Update the material to reflect the changes
-    material.needsUpdate = true;
+    material1.needsUpdate = true;
+    
+    // Get the material with index 2
+    const material2 = modelViewer.model.materials[2];
+    const texture2 = await modelViewer.createTexture('../Assets/AsyncTextures/paintings_8K.jpg');
+
+    // Set the texture on the material
+    material2.pbrMetallicRoughness["baseColorTexture"].setTexture(texture2);
+    
+    // Update the material to reflect the changes
+    material2.needsUpdate = true;
+    
   });
 </script>
     <!-- Loads <model-viewer> for browsers: -->
