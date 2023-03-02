@@ -23,6 +23,12 @@
           <div class="update-bar"></div>
       </div>
     </model-viewer>  
+    <div class="left-half">
+      <button class="NavigationButton" id="previous">&#8249;</button>
+    </div>
+    <div class="right-half">
+      <button class="NavigationButton" id="next">&#8250;</button>
+    </div>  
     <script src="../Scripts/script.js"></script>
     <script>
       const mv = document.querySelector("#modelviewer");
@@ -72,6 +78,56 @@
     
   });
 </script>
+    <script>
+      const mv2 = document.querySelector("#modelviewer");        
+      
+      let funcArr = [
+      function() {
+        mv2.cameraOrbit = '90deg 90deg 0.0198m'
+        mv2.cameraTarget= '-0.08m 0.02m 0.04m'
+        mv2.fieldOfView = '45deg'
+      },
+    
+      function() {
+        mv2.cameraOrbit = '90deg 90deg 0.0198m'
+        mv2.cameraTarget= '-0.08m 0.02m 0.03m'
+        mv2.fieldOfView = '45deg'
+      }, 
+        
+      function() {
+        mv2.cameraOrbit = '90deg 90deg 0.0198m'
+        mv2.cameraTarget= '-0.08m 0.02m 0.02m'
+        mv2.fieldOfView = '45deg'
+      },
+      function() {
+        mv2.cameraOrbit = '90deg 90deg 0.0198m'
+        mv2.cameraTarget= '-0.08m 0.02m 0.01m'
+        mv2.fieldOfView = '45deg'
+      }
+      ];
+
+    let i = 0;
+
+    let btn = document.getElementById('next'); /* getElementsByTagName('button')[1];  */
+    btn.onclick = function() {
+        if(i >= funcArr.length) {
+          i = 0;
+        }
+        funcArr[i++](); // first call function and then, increment the value of i i++ % funcArr.length
+        console.log("Next "+i);
+    }
+      
+    let btn1 = document.getElementById('previous');
+    btn1.onclick = function() {
+        if(i == 0) {
+          i = funcArr.length;
+        }
+        i--;
+        funcArr[i](); // first call function and then, increment the value of i
+        console.log("Previous " +i);
+    }
+    </script>
+    
     <!-- Loads <model-viewer> for browsers: -->
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.0.1/model-viewer.min.js"></script>
   </body>
