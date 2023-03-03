@@ -231,18 +231,14 @@
       const mv3 = document.querySelector("#modelviewer"); 
       
       let index = 0;     
-      
+    
       const startButton = document.createElement('button');
       startButton.textContent = 'Start';
       startButton.addEventListener('click', () => {
       setInterval(() => {
-        if(index >= funcArr.length) {
-          index = 0;
-        } 
-        index = index +1;
-        funcArr[(index)];
+        console.log(index);
+        funcArr[(index+ 1) % items.length];
       }, 3000);
-        console.log("Next "+ index);
     });
       document.body.appendChild(startButton);      
     </script>
