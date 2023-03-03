@@ -229,6 +229,7 @@
     </script>
     <script type="module">      
       const mv3 = document.querySelector("#modelviewer");
+      mv3.cameraControls = true;
 
       const orbits = [
         {theta: 0, phi: 0, radius: 5},
@@ -247,6 +248,7 @@
         playButton.textContent = isPlaying ? 'Pause' : 'Resume';
       });
       document.body.appendChild(playButton);
+      
 
       function animate() {
         requestAnimationFrame(animate);
