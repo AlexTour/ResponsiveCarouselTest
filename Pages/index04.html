@@ -250,18 +250,12 @@
       
       let index = 0;     
 
-      const startButton = document.createElement('button');
-      startButton.textContent = 'Start';
-      startButton.addEventListener('click', () => {
-        setInterval(() => {
-          if(index >= funcArr.length) {
-            index = 0;
-          } 
-          funcArr[(index + 1)];
-        }, 3000);
-      });
-
-      document.body.appendChild(startButton);
+      setInterval(() => {
+        if(index >= funcArr.length) {
+          index = 0;
+        } 
+        funcArr[(index + 1)];
+      }, 3000);
     </script>
     <!-- Loads <model-viewer> for browsers: -->
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.0.1/model-viewer.min.js"></script>
