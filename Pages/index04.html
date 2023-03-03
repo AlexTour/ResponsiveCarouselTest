@@ -229,33 +229,20 @@
     </script>
     <script>
       const mv3 = document.querySelector("#modelviewer"); 
-      const orbitCycle = [
-        '90deg 90deg 0.0198m',
-        '0deg 90deg 0.01074m',
-        '-90deg 90deg 0.03453m',
-        '90deg 90deg 0.03453m',
-        '180deg 90deg 0.03453m',
-        '270deg 90deg 0.01417m',
-        '450deg 90deg 0.03574m',
-        '360deg 90deg 0.03574m',
-        '270deg 90deg 0.03574m',
-        '90deg 90deg 0.03574m',
-        '180deg 90deg 0.03574m',
-        '270deg 90deg 0.03574m',
-        '450deg 90deg 0.03574m',
-        '360deg 90deg 0.03574m',
-        '270deg 90deg 0.03097m',
-        mv3.cameraOrbit
-      ];
       
       let index = 0;     
-
+      
+      const startButton = document.createElement('button');
+      startButton.textContent = 'Start';
+      startButton.addEventListener('click', () => {
       setInterval(() => {
         if(index >= funcArr.length) {
           index = 0;
         } 
         funcArr[(index + 1)];
       }, 3000);
+    });
+      document.body.appendChild(startButton);      
     </script>
     <!-- Loads <model-viewer> for browsers: -->
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.0.1/model-viewer.min.js"></script>
