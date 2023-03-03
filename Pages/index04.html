@@ -248,16 +248,16 @@
         mv3.cameraOrbit
       ];
       
-      let i = 0;     
+      let index = 0;     
 
       const startButton = document.createElement('button');
       startButton.textContent = 'Start';
       startButton.addEventListener('click', () => {
         setInterval(() => {
-          if(i >= funcArr.length) {
-            i = 0;
+          if(index >= funcArr.length) {
+            index = 0;
           } 
-          funcArr[(i + 1) % funcArr.length]();
+          funcArr[(index + 1) % funcArr.length]();
         }, 3000);
       });
 
