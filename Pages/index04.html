@@ -235,7 +235,7 @@
       setInterval(() => {
         console.log(index);
         index = (index+ 1) % funcArr.length;
-        funcArr[index];
+        funcArr[index]();
       }, 5000);
     });
     document.body.appendChild(startButton);         
