@@ -226,54 +226,34 @@
         funcArr[i](); // first call function and then, increment the value of i
         console.log("Previous " +i);
     }
-    </script>
-    <script type="module">      
-      const mv3 = document.querySelector("#modelviewer");
-      mv3.cameraControls = true;
-
-      const orbits = [
-        {theta: 0, phi: 0, radius: 5},
-        {theta: 45, phi: 30, radius: 7},
-        {theta: 90, phi: 60, radius: 10},
-        {theta: 180, phi: 0, radius: 5},
+    <script>
+    (() => {
+      const modelViewer = document.querySelector('#modelviewer');
+      const orbitCycle = [
+        '90deg 90deg 0.0198m',
+        '0deg 90deg 0.01074m',
+        '-90deg 90deg 0.03453m',
+        '90deg 90deg 0.03453m',
+        '180deg 90deg 0.03453m',
+        '270deg 90deg 0.01417m',
+        '450deg 90deg 0.03574m',
+        '360deg 90deg 0.03574m',
+        '270deg 90deg 0.03574m',
+        '90deg 90deg 0.03574m',
+        '180deg 90deg 0.03574m',
+        '270deg 90deg 0.03574m',
+        '450deg 90deg 0.03574m',
+        '360deg 90deg 0.03574m',
+        '270deg 90deg 0.03097m',
+        modelViewer.cameraOrbit
       ];
 
-      let currentOrbit = 0;
-      let isPlaying = true;
-     
-      const playButton = document.createElement('button');
-      playButton.textContent = 'Pause';
-      playButton.addEventListener('click', () => {
-        isPlaying = !isPlaying;
-        playButton.textContent = isPlaying ? 'Pause' : 'Resume';
-      });
-      document.body.appendChild(playButton);
-      
-
-      function animate() {
-        requestAnimationFrame(animate);
-
-        if (!isPlaying) {
-          return;
-        }
-
-        const {theta, phi, radius} = orbits[currentOrbit];
-
-        // Interpolate between the current and next orbit
-        mv3.cameraOrbit = {
-          theta: mv3.cameraOrbit.theta + (theta - mv3.cameraOrbit.theta) * 0.1,
-          phi: mv3.cameraOrbit.phi + (phi - mv3.cameraOrbit.phi) * 0.1,
-          radius: mv3.cameraOrbit.radius + (radius - mv3.cameraOrbit.radius) * 0.1,
-        };
-
-        // If the camera has reached the next orbit, move to the next orbit
-        const distanceToNextOrbit = Math.abs(mv3.cameraOrbit.theta - theta) + Math.abs(mv3.cameraOrbit.phi - phi) + Math.abs(mv3.cameraOrbit.radius - radius);
-        if (distanceToNextOrbit < 0.001) {
-          currentOrbit = (currentOrbit + 1) % orbits.length;
-        }
-      }
-
-      animate();
+      setInterval(() => {
+        const currentOrbitIndex = orbitCycle.indexOf(modelViewer.cameraOrbit);
+        modelViewer.cameraOrbit =
+            orbitCycle[(currentOrbitIndex + 1) % orbitCycle.length];
+      }, 3000);
+    })();
     </script>
     <!-- Loads <model-viewer> for browsers: -->
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.0.1/model-viewer.min.js"></script>
