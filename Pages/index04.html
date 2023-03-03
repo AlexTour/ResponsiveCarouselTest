@@ -1,246 +1,270 @@
 <!doctype html>
 <html lang="en">
-  <head> 
+
+<head>
     <title>Dalí - Die virtuelle Ausstellung</title>
-     <link rel="icon" type="image/x-icon" href="../Assets/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="../Assets/favicon.ico">
     <meta charset="utf-8">
     <meta name="description" content="&lt;model-viewer&gt; template">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link type="text/css" href="../CSS/modelviewerstyles.css" rel="stylesheet"/>
+    <link type="text/css" href="../CSS/modelviewerstyles.css" rel="stylesheet" />
     <!-- OPTIONAL: The :focus-visible polyfill removes the focus ring for some input types -->
     <script src="https://unpkg.com/focus-visible@5.0.2/dist/focus-visible.js" defer></script>
-  </head>
-  <body>
+</head>
+
+<body>
     <div class="logo-container">
         <img class="logo-responsive" id="logo" src="../Assets/dali-logo.png" alt="logo">
     </div>
-     <button class="ResetButton" onclick="resetCameraPercent()">
-      Reset
+    <button class="ResetButton" onclick="resetCameraPercent()">
+        Reset
     </button>
     <!-- <model-viewer> HTML element -->
-    <model-viewer src="../Assets/3D/OG_R4.glb" id="modelviewer" camera-controls touch-action="none" interaction-prompt="none" poster="../Assets/poster04.png" shadow-intensity="1" max-camera-orbit="auto 90deg auto" min-camera-orbit="auto auto 5%" cameraorbit="0.3184deg 75deg 0.3018m" interpolation-decay="200" max-field-of-view="45deg" min-field-of-view="25deg" field-of-view="45deg">
-      <div class="progress-bar hide" slot="progress-bar">
-          <div class="update-bar"></div>
-      </div>
-    </model-viewer>  
+    <model-viewer src="../Assets/3D/OG_R4.glb" id="modelviewer" camera-controls touch-action="none"
+        interaction-prompt="none" poster="../Assets/poster04.png" shadow-intensity="1"
+        max-camera-orbit="auto 90deg auto" min-camera-orbit="auto auto 5%" cameraorbit="0.3184deg 75deg 0.3018m"
+        interpolation-decay="200" max-field-of-view="45deg" min-field-of-view="25deg" field-of-view="45deg">
+        <div class="progress-bar hide" slot="progress-bar">
+            <div class="update-bar"></div>
+        </div>
+    </model-viewer>
     <div class="left-half">
-      <button class="NavigationButton" id="previous">&#8249;</button>
+        <button class="NavigationButton" id="previous">&#8249;</button>
     </div>
     <div class="right-half">
-      <button class="NavigationButton" id="next">&#8250;</button>
-    </div>  
+        <button class="NavigationButton" id="next">&#8250;</button>
+    </div>
     <script src="../Scripts/script.js"></script>
     <script>
-      const mv = document.querySelector("#modelviewer");
-      function resetCameraPercent() {
-        mv.cameraTarget= '0m 0m 0m'
-        mv.cameraOrbit = '0.3184deg 75deg auto%'
-        mv.fieldOfView = '45deg'
-      }
+        const mv = document.querySelector("#modelviewer");
+        function resetCameraPercent() {
+            mv.cameraTarget = '0m 0m 0m'
+            mv.cameraOrbit = '0.3184deg 75deg auto%'
+            mv.fieldOfView = '45deg'
+        }
     </script>
     <script type="module">
-      const modelViewer2 = document.querySelector("#modelviewer");
-      const annotationClicked = (annotation) => {
-        let dataset = annotation.dataset;
-        modelViewer2.cameraTarget = dataset.target;
-        modelViewer2.cameraOrbit = dataset.orbit;
-        modelViewer2.fieldOfView = '45deg';
-      }
+        const modelViewer2 = document.querySelector("#modelviewer");
+        const annotationClicked = (annotation) => {
+            let dataset = annotation.dataset;
+            modelViewer2.cameraTarget = dataset.target;
+            modelViewer2.cameraOrbit = dataset.orbit;
+            modelViewer2.fieldOfView = '45deg';
+        }
 
-      modelViewer2.querySelectorAll('button').forEach((hotspot) => {
-      hotspot.addEventListener('click', () => annotationClicked(hotspot));
-    });
-</script>
-<script type="module">
-  const modelViewer = document.querySelector("#modelviewer");
+        modelViewer2.querySelectorAll('button').forEach((hotspot) => {
+            hotspot.addEventListener('click', () => annotationClicked(hotspot));
+        });
+    </script>
+    <script type="module">
+        const modelViewer = document.querySelector("#modelviewer");
 
-  // Wait for the model to finish loading
-  modelViewer.addEventListener('load', async () => {
-    // Get the material with index 0
-    const material1 = modelViewer.model.materials[0];
-    const texture1 = await modelViewer.createTexture('../Assets/AsyncTextures/dali_OG_Jesus_DIFF_4K.jpeg');
+        // Wait for the model to finish loading
+        modelViewer.addEventListener('load', async () => {
+            // Get the material with index 0
+            const material1 = modelViewer.model.materials[0];
+            const texture1 = await modelViewer.createTexture('../Assets/AsyncTextures/dali_OG_Jesus_DIFF_4K.jpeg');
 
-    // Set the texture on the material
-    material1.pbrMetallicRoughness["baseColorTexture"].setTexture(texture1);
-    
-    // Update the material to reflect the changes
-    material1.needsUpdate = true;
-    
-    // Get the material with index 2
-    const material2 = modelViewer.model.materials[2];
-    const texture2 = await modelViewer.createTexture('../Assets/AsyncTextures/paintings_8K.jpg');
+            // Set the texture on the material
+            material1.pbrMetallicRoughness["baseColorTexture"].setTexture(texture1);
 
-    // Set the texture on the material
-    material2.pbrMetallicRoughness["baseColorTexture"].setTexture(texture2);
-    
-    // Update the material to reflect the changes
-    material2.needsUpdate = true;
-    
-  });
-</script>
+            // Update the material to reflect the changes
+            material1.needsUpdate = true;
+
+            // Get the material with index 2
+            const material2 = modelViewer.model.materials[2];
+            const texture2 = await modelViewer.createTexture('../Assets/AsyncTextures/paintings_8K.jpg');
+
+            // Set the texture on the material
+            material2.pbrMetallicRoughness["baseColorTexture"].setTexture(texture2);
+
+            // Update the material to reflect the changes
+            material2.needsUpdate = true;
+
+        });
+    </script>
     <script>
-      const mv2 = document.querySelector("#modelviewer");        
-      
-      let funcArr = [
-      function() {
-        mv2.cameraOrbit = '90deg 90deg 0.0198m'
-        mv2.cameraTarget= '-0.08m 0.02m 0.04m'
-        mv2.fieldOfView = '60deg'
-      },
-    
-      function() {
-        mv2.cameraOrbit = '90deg 90deg 0.0198m'
-        mv2.cameraTarget= '-0.08m 0.02m 0.03m'
-        mv2.fieldOfView = '60deg'
-      }, 
-        
-      function() {
-        mv2.cameraOrbit = '90deg 90deg 0.0198m'
-        mv2.cameraTarget= '-0.08m 0.02m 0.02m'
-        mv2.fieldOfView = '60deg'
-      },
-      function() {
-        mv2.cameraOrbit = '90deg 90deg 0.0198m'
-        mv2.cameraTarget= '-0.08m 0.02m 0.01m'
-        mv2.fieldOfView = '60deg'
-      },
-        function() {
-        mv2.cameraOrbit = '90deg 90deg 0.0198m'
-        mv2.cameraTarget= '-0.08m 0.02m 0m'
-        mv2.fieldOfView = '60deg'
-      },  
-        function() {
-        mv2.cameraOrbit = '90deg 90deg 0.0198m'
-        mv2.cameraTarget= '-0.08m 0.02m -0.01m'
-        mv2.fieldOfView = '60deg'
-      },       
-        function() {
-        mv2.cameraOrbit = '0deg 90deg 0.01074m'
-        mv2.cameraTarget= '-0.05458m 0.017m 0m'
-        mv2.fieldOfView = '60deg'
-      },
-        function() {
-        mv2.cameraOrbit = '-90deg 90deg 0.03453m'
-        mv2.cameraTarget= '-0.03m 0.017m 0m'
-        mv2.fieldOfView = '60deg'
-      },
-        function() {
-        mv2.cameraOrbit = '90deg 90deg 0.03453m'
-        mv2.cameraTarget= '-0.05m 0.017m 0.03m'
-        mv2.fieldOfView = '60deg'
-      },
-        function() {
-        mv2.cameraOrbit = '180deg 90deg 0.03453m'
-        mv2.cameraTarget= '-0.04m 0.02m 0.04m'
-        mv2.fieldOfView = '60deg'
-      },
-        function() {
-        mv2.cameraOrbit = '180deg 90deg 0.03453m'
-        mv2.cameraTarget= '-0.02m 0.02m 0.04m'
-        mv2.fieldOfView = '60deg'
-      },
-        function() {
-        mv2.cameraOrbit = '270deg 90deg 0.01417m'
-        mv2.cameraTarget= '-0.02m 0.02m 0.03m'
-        mv2.fieldOfView = '60deg'
-      },
-        function() {
-        mv2.cameraOrbit = '450deg 90deg 0.03574m'
-        mv2.cameraTarget= '-0.02m 0.02m 0m'
-        mv2.fieldOfView = '60deg'
-      },
-        function() {
-        mv2.cameraOrbit = '360deg 90deg 0.03574m'
-        mv2.cameraTarget= '-0.01m 0.02m -0.02m'
-        mv2.fieldOfView = '60deg'
-      },
-        function() {
-        mv2.cameraOrbit = '360deg 90deg 0.03574m'
-        mv2.cameraTarget= '0.01m 0.02m -0.02m'
-        mv2.fieldOfView = '60deg'
-      },
-        function() {
-        mv2.cameraOrbit = '270deg 90deg 0.03574m'
-        mv2.cameraTarget= '0.02m 0.02m -0.01m'
-        mv2.fieldOfView = '60deg'
-      },
-        function() {
-        mv2.cameraOrbit = '90deg 90deg 0.03574m'
-        mv2.cameraTarget= '0m 0.02m 0.04m'
-        mv2.fieldOfView = '60deg'
-      },
-        function() {
-        mv2.cameraOrbit = '180deg 90deg 0.03574m'
-        mv2.cameraTarget= '0.01m 0.02m 0.04m'
-        mv2.fieldOfView = '60deg'
-      },
-        function() {
-        mv2.cameraOrbit = '180deg 90deg 0.03574m'
-        mv2.cameraTarget= '0.04m 0.02m 0.04m'
-        mv2.fieldOfView = '60deg'
-      },
-        function() {
-        mv2.cameraOrbit = '270deg 90deg 0.03574m'
-        mv2.cameraTarget= '0.05m 0.02m 0.04m'
-        mv2.fieldOfView = '60deg'
-      },
-       function() {
-        mv2.cameraOrbit = '450deg 90deg 0.03574m'
-        mv2.cameraTarget= '0.03m 0.02m 0m'
-        mv2.fieldOfView = '60deg'
-      },
-        function() {
-        mv2.cameraOrbit = '360deg 90deg 0.03574m'
-        mv2.cameraTarget= '0.04m 0.02m -0.02m'
-        mv2.fieldOfView = '60deg'
-      },
-        function() {
-        mv2.cameraOrbit = '360deg 90deg 0.03574m'
-        mv2.cameraTarget= '0.06m 0.02m -0.02m'
-        mv2.fieldOfView = '60deg'
-      },
-       function() {
-        mv2.cameraOrbit = '270deg 90deg 0.03097m'
-        mv2.cameraTarget= '0.07m 0.02m 0m'
-        mv2.fieldOfView = '60deg'
-      }     
-      ];
+        const mv2 = document.querySelector("#modelviewer");
 
-    let i = 0;
+        let funcArr = [
+            function () {
+                mv2.cameraOrbit = '90deg 90deg 0.0198m'
+                mv2.cameraTarget = '-0.08m 0.02m 0.04m'
+                mv2.fieldOfView = '60deg'
+            },
 
-    let btn = document.getElementById('next'); /* getElementsByTagName('button')[1];  */
-    btn.onclick = function() {
-        if(i >= funcArr.length) {
-          i = 0;
+            function () {
+                mv2.cameraOrbit = '90deg 90deg 0.0198m'
+                mv2.cameraTarget = '-0.08m 0.02m 0.03m'
+                mv2.fieldOfView = '60deg'
+            },
+
+            function () {
+                mv2.cameraOrbit = '90deg 90deg 0.0198m'
+                mv2.cameraTarget = '-0.08m 0.02m 0.02m'
+                mv2.fieldOfView = '60deg'
+            },
+            function () {
+                mv2.cameraOrbit = '90deg 90deg 0.0198m'
+                mv2.cameraTarget = '-0.08m 0.02m 0.01m'
+                mv2.fieldOfView = '60deg'
+            },
+            function () {
+                mv2.cameraOrbit = '90deg 90deg 0.0198m'
+                mv2.cameraTarget = '-0.08m 0.02m 0m'
+                mv2.fieldOfView = '60deg'
+            },
+            function () {
+                mv2.cameraOrbit = '90deg 90deg 0.0198m'
+                mv2.cameraTarget = '-0.08m 0.02m -0.01m'
+                mv2.fieldOfView = '60deg'
+            },
+            function () {
+                mv2.cameraOrbit = '0deg 90deg 0.01074m'
+                mv2.cameraTarget = '-0.05458m 0.017m 0m'
+                mv2.fieldOfView = '60deg'
+            },
+            function () {
+                mv2.cameraOrbit = '-90deg 90deg 0.03453m'
+                mv2.cameraTarget = '-0.03m 0.017m 0m'
+                mv2.fieldOfView = '60deg'
+            },
+            function () {
+                mv2.cameraOrbit = '90deg 90deg 0.03453m'
+                mv2.cameraTarget = '-0.05m 0.017m 0.03m'
+                mv2.fieldOfView = '60deg'
+            },
+            function () {
+                mv2.cameraOrbit = '180deg 90deg 0.03453m'
+                mv2.cameraTarget = '-0.04m 0.02m 0.04m'
+                mv2.fieldOfView = '60deg'
+            },
+            function () {
+                mv2.cameraOrbit = '180deg 90deg 0.03453m'
+                mv2.cameraTarget = '-0.02m 0.02m 0.04m'
+                mv2.fieldOfView = '60deg'
+            },
+            function () {
+                mv2.cameraOrbit = '270deg 90deg 0.01417m'
+                mv2.cameraTarget = '-0.02m 0.02m 0.03m'
+                mv2.fieldOfView = '60deg'
+            },
+            function () {
+                mv2.cameraOrbit = '450deg 90deg 0.03574m'
+                mv2.cameraTarget = '-0.02m 0.02m 0m'
+                mv2.fieldOfView = '60deg'
+            },
+            function () {
+                mv2.cameraOrbit = '360deg 90deg 0.03574m'
+                mv2.cameraTarget = '-0.01m 0.02m -0.02m'
+                mv2.fieldOfView = '60deg'
+            },
+            function () {
+                mv2.cameraOrbit = '360deg 90deg 0.03574m'
+                mv2.cameraTarget = '0.01m 0.02m -0.02m'
+                mv2.fieldOfView = '60deg'
+            },
+            function () {
+                mv2.cameraOrbit = '270deg 90deg 0.03574m'
+                mv2.cameraTarget = '0.02m 0.02m -0.01m'
+                mv2.fieldOfView = '60deg'
+            },
+            function () {
+                mv2.cameraOrbit = '90deg 90deg 0.03574m'
+                mv2.cameraTarget = '0m 0.02m 0.04m'
+                mv2.fieldOfView = '60deg'
+            },
+            function () {
+                mv2.cameraOrbit = '180deg 90deg 0.03574m'
+                mv2.cameraTarget = '0.01m 0.02m 0.04m'
+                mv2.fieldOfView = '60deg'
+            },
+            function () {
+                mv2.cameraOrbit = '180deg 90deg 0.03574m'
+                mv2.cameraTarget = '0.04m 0.02m 0.04m'
+                mv2.fieldOfView = '60deg'
+            },
+            function () {
+                mv2.cameraOrbit = '270deg 90deg 0.03574m'
+                mv2.cameraTarget = '0.05m 0.02m 0.04m'
+                mv2.fieldOfView = '60deg'
+            },
+            function () {
+                mv2.cameraOrbit = '450deg 90deg 0.03574m'
+                mv2.cameraTarget = '0.03m 0.02m 0m'
+                mv2.fieldOfView = '60deg'
+            },
+            function () {
+                mv2.cameraOrbit = '360deg 90deg 0.03574m'
+                mv2.cameraTarget = '0.04m 0.02m -0.02m'
+                mv2.fieldOfView = '60deg'
+            },
+            function () {
+                mv2.cameraOrbit = '360deg 90deg 0.03574m'
+                mv2.cameraTarget = '0.06m 0.02m -0.02m'
+                mv2.fieldOfView = '60deg'
+            },
+            function () {
+                mv2.cameraOrbit = '270deg 90deg 0.03097m'
+                mv2.cameraTarget = '0.07m 0.02m 0m'
+                mv2.fieldOfView = '60deg'
+            }
+        ];
+
+        let i = 0;
+
+        let btn = document.getElementById('next'); /* getElementsByTagName('button')[1];  */
+        btn.onclick = function () {
+            if (i >= funcArr.length) {
+                i = 0;
+            }
+            funcArr[i++](); // first call function and then, increment the value of i i++ % funcArr.length
+            console.log("Next " + i);
         }
-        funcArr[i++](); // first call function and then, increment the value of i i++ % funcArr.length
-        console.log("Next "+i);
-    }
-      
-    let btn1 = document.getElementById('previous');
-    btn1.onclick = function() {
-        if(i == 0) {
-          i = funcArr.length;
+
+        let btn1 = document.getElementById('previous');
+        btn1.onclick = function () {
+            if (i == 0) {
+                i = funcArr.length;
+            }
+            i--;
+            funcArr[i](); // first call function and then, increment the value of i
+            console.log("Previous " + i);
         }
-        i--;
-        funcArr[i](); // first call function and then, increment the value of i
-        console.log("Previous " +i);
-    }
-      
-    let index = 0;     
-    
-    const startButton = document.createElement('button');
-    startButton.textContent = 'Start';
-    startButton.addEventListener('click', () => {
-      setInterval(() => {
-        console.log(index);
-        index = (index+ 1) % funcArr.length;
-        funcArr[index]();
-      }, 5000);
-    });
-    document.body.appendChild(startButton);         
+
+        let index = 0;
+
+        const startButton = document.createElement('button');
+        startButton.textContent = 'Start';
+        startButton.addEventListener('click', () => {
+            setInterval(() => {
+                console.log(index);
+                index = (index + 1) % funcArr.length;
+                funcArr[index]();
+            }, 3000);
+        });
+        document.body.appendChild(startButton);         
+    </script>
+    <script type="module">
+        const mv3 = document.querySelector("#modelviewer");
+        const resetbutton = document.querySelector("ResetButton");
+        const navigationbutton = document.querySelector("NavigationButton");
+
+
+        // Wait for the model to finish loading
+        modelViewer.addEventListener('load', () => {
+            resetbutton.style.display = "block";
+            navigationbutton.style.display = "block";
+        });
+
+        // hide the button when the user interacts with the model
+        modelViewer.addEventListener("interaction-prompt", () => {
+            resetbutton.style.display = "none";
+            navigationbutton.style.display = "none";
+        });
     </script>
     <!-- Loads <model-viewer> for browsers: -->
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.0.1/model-viewer.min.js"></script>
-  </body>
+</body>
+
 </html>
