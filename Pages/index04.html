@@ -252,13 +252,13 @@
 
 
         // Wait for the model to finish loading
-        mv3.addEventListener('load', function() => {
+        mv3.addEventListener('load', function() {
             resetbutton.style.display = "block";
             navigationbutton.style.display = "block";
         });
 
         // hide the button when the user interacts with the model
-        mv3.addEventListener("interaction-prompt", function() => {
+        mv3.addEventListener("interaction-prompt", function() {
             resetbutton.style.display = "none";
             navigationbutton.style.display = "none";
         });
