@@ -247,13 +247,17 @@
         '270deg 90deg 0.03097m',
         mv3.cameraOrbit
       ];
+      
+      let i = 0;     
 
       const startButton = document.createElement('button');
       startButton.textContent = 'Start';
       startButton.addEventListener('click', () => {
         setInterval(() => {
-          const currentOrbitIndex = funcArr.indexOf(mv3.cameraOrbit);        
-          funcArr[(currentOrbitIndex + 1) % funcArr.length]();
+          if(i >= funcArr.length) {
+            i = 0;
+          } 
+          funcArr[(i + 1) % funcArr.length]();
         }, 3000);
       });
 
