@@ -234,7 +234,8 @@
     startButton.addEventListener('click', () => {
       setInterval(() => {
         console.log(index);
-        funcArr[((index+ 1) % funcArr.length)];
+        index = (index+ 1) % funcArr.length;
+        funcArr[index];
       }, 5000);
     });
     document.body.appendChild(startButton);         
