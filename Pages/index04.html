@@ -227,7 +227,6 @@
         console.log("Previous " +i);
     }
     <script>
-    (() => {
       const modelViewer = document.querySelector('#modelviewer');
       const orbitCycle = [
         '90deg 90deg 0.0198m',
@@ -253,7 +252,6 @@
         modelViewer.cameraOrbit =
             orbitCycle[(currentOrbitIndex + 1) % orbitCycle.length];
       }, 3000);
-    })();
     </script>
     <!-- Loads <model-viewer> for browsers: -->
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.0.1/model-viewer.min.js"></script>
