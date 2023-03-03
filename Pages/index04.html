@@ -85,7 +85,7 @@
       function() {
         mv2.cameraOrbit = '90deg 90deg 0.0198m'
         mv2.cameraTarget= '-0.08m 0.02m 0.04m'
-        mv2.fieldOfView = '45deg'
+        mv2.fieldOfView = '60deg'
       },
     
       function() {
@@ -248,11 +248,17 @@
         mv3.cameraOrbit
       ];
 
-      setInterval(() => {
-        const currentOrbitIndex = orbitCycle.indexOf(mv3.cameraOrbit);
-        mv3.cameraOrbit =
-            orbitCycle[(currentOrbitIndex + 1) % orbitCycle.length];
-      }, 3000);
+      const startButton = document.createElement('button');
+      startButton.textContent = 'Start';
+      startButton.addEventListener('click', () => {
+        setInterval(() => {
+          const currentOrbitIndex = orbitCycle.indexOf(modelViewer.cameraOrbit);
+          modelViewer.cameraOrbit =
+              orbitCycle[(currentOrbitIndex + 1) % orbitCycle.length];
+        }, 3000);
+      });
+
+      document.body.appendChild(startButton);
     </script>
     <!-- Loads <model-viewer> for browsers: -->
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.0.1/model-viewer.min.js"></script>
