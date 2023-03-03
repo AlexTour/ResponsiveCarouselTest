@@ -248,20 +248,33 @@
     <script>
         const mv3 = document.querySelector("#modelviewer");
         const resetbutton = document.querySelector(".ResetButton");
+        const previous = document.querySelector("#previous");
+        const next = document.querySelector("#next");
         const navigationbutton = document.querySelector(".NavigationButton");
 
 
         // Wait for the model to finish loading
         mv3.addEventListener('load', function() {
             resetbutton.style.display = "block";
-            navigationbutton.style.display = "block";
+            previous.style.display = "block";
+            next.style.display = "block";
         });
 
         // hide the button when the user interacts with the model
         mv3.addEventListener("camera-change", (event) => {
             if (event.detail.source === 'user-interaction') {
                 resetbutton.style.display = "none";
-                navigationbutton.style.display = "none";
+                previous.style.display = "none";
+                next.style.display = "none";
+            }
+        });
+        
+        // Wait for the model to finish loading
+        mv3.addEventListener('interact-stopped', (event) => {
+            if (event.detail.source === 'user-interaction') {
+                resetbutton.style.display = "block";
+                previous.style.display = "block";
+                next.style.display = "block";
             }
         });
     </script>
