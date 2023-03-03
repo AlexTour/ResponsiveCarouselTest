@@ -252,9 +252,8 @@
       startButton.textContent = 'Start';
       startButton.addEventListener('click', () => {
         setInterval(() => {
-          const currentOrbitIndex = orbitCycle.indexOf(modelViewer.cameraOrbit);
-          modelViewer.cameraOrbit =
-              orbitCycle[(currentOrbitIndex + 1) % orbitCycle.length];
+          const currentOrbitIndex = orbitCycle.indexOf(mv3.cameraOrbit);        
+          funcArr[(currentOrbitIndex + 1) % funcArr.length]();
         }, 3000);
       });
 
