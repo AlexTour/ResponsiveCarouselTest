@@ -258,9 +258,11 @@
         });
 
         // hide the button when the user interacts with the model
-        mv3.addEventListener("interaction-prompt", function() {
-            resetbutton.style.display = "none";
-            navigationbutton.style.display = "none";
+        mv3.addEventListener("camera-change", (event) => {
+            if (event.detail.source === 'user-interaction') {
+                resetbutton.style.display = "none";
+                navigationbutton.style.display = "none";
+            }
         });
     </script>
     <!-- Loads <model-viewer> for browsers: -->
