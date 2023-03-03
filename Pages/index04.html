@@ -252,7 +252,7 @@
       startButton.textContent = 'Start';
       startButton.addEventListener('click', () => {
         setInterval(() => {
-          const currentOrbitIndex = orbitCycle.indexOf(mv3.cameraOrbit);        
+          const currentOrbitIndex = funcArr.indexOf(mv3.cameraOrbit);        
           funcArr[(currentOrbitIndex + 1) % funcArr.length]();
         }, 3000);
       });
