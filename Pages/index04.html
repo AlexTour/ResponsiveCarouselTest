@@ -227,7 +227,7 @@
         console.log("Previous " +i);
     }
     <script>
-      const modelViewer = document.querySelector('#modelviewer');
+      const mv3 = document.querySelector("#modelviewer"); 
       const orbitCycle = [
         '90deg 90deg 0.0198m',
         '0deg 90deg 0.01074m',
@@ -244,12 +244,12 @@
         '450deg 90deg 0.03574m',
         '360deg 90deg 0.03574m',
         '270deg 90deg 0.03097m',
-        modelViewer.cameraOrbit
+        mv3.cameraOrbit
       ];
 
       setInterval(() => {
-        const currentOrbitIndex = orbitCycle.indexOf(modelViewer.cameraOrbit);
-        modelViewer.cameraOrbit =
+        const currentOrbitIndex = orbitCycle.indexOf(mv3.cameraOrbit);
+        mv3.cameraOrbit =
             orbitCycle[(currentOrbitIndex + 1) % orbitCycle.length];
       }, 3000);
     </script>
