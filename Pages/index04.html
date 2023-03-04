@@ -255,12 +255,8 @@
 
         // Wait for the model to finish loading
         mv3.addEventListener("load", function() {
-            resetbutton.style.display = "block";
-            previous.style.display = "block";
-            next.style.display = "block";
+            showButton();
         });
-        
-        let timeoutId;
 
         function hideButton() {
             resetbutton.style.display = "none";
@@ -274,22 +270,15 @@
             next.style.display = "block";
         }
 
-        function startTimer() {
-            timeoutId = setTimeout(hideButton, 1000);
-        }
-
-        function stopTimer() {
-            clearTimeout(timeoutId);
-            showButton();
-        }
-
         // hide the button when the user interacts with the model
         mv3.addEventListener("camera-change", (event) => {
             if (event.detail.source === "user-interaction") {
-                stopTimer();
-                startTimer();
+                hideButton();
+            } else {
+                showButton();
             }
         });
+
     </script>
     <!-- Loads <model-viewer> for browsers: -->
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.0.1/model-viewer.min.js"></script>
