@@ -259,18 +259,35 @@
             previous.style.display = "block";
             next.style.display = "block";
         });
+        
+        let timeoutId;
+
+        function hideButton() {
+            resetbutton.style.display = "none";
+            previous.style.display = "none";
+            next.style.display = "none";
+        }
+
+        function showButton() {
+            resetbutton.style.display = "block";
+            previous.style.display = "block";
+            next.style.display = "block";
+        }
+
+        function startTimer() {
+            timeoutId = setTimeout(hideButton, 1000);
+        }
+
+        function stopTimer() {
+            clearTimeout(timeoutId);
+            showButton();
+        }
 
         // hide the button when the user interacts with the model
         mv3.addEventListener("camera-change", (event) => {
             if (event.detail.source === "user-interaction") {
-                resetbutton.style.display = "none";
-                previous.style.display = "none";
-                next.style.display = "none";
-            }
-            else {
-                resetbutton.style.display = "block";
-                previous.style.display = "block";
-                next.style.display = "block";          
+                stopTimer();
+                startTimer();
             }
         });
     </script>
