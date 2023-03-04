@@ -16,7 +16,7 @@
     <div class="logo-container">
         <img class="logo-responsive" id="logo" src="../Assets/dali-logo.png" alt="logo">
     </div>
-    <button class="ResetButton" onclick="resetCameraPercent()">
+    <button class="ResetButton" style="display: none;" onclick="resetCameraPercent()">
         Reset
     </button>
     <!-- <model-viewer> HTML element -->
@@ -29,10 +29,10 @@
         </div>
     </model-viewer>
     <div class="left-half">
-        <button class="NavigationButton" id="previous">&#8249;</button>
+        <button class="NavigationButton" style="display: none;" id="previous">&#8249;</button>
     </div>
     <div class="right-half">
-        <button class="NavigationButton" id="next">&#8250;</button>
+        <button class="NavigationButton" style="display: none;" id="next">&#8250;</button>
     </div>
     <script src="../Scripts/script.js"></script>
     <script>
@@ -251,8 +251,7 @@
         const previous = document.querySelector("#previous");
         const next = document.querySelector("#next");
         const navigationbutton = document.querySelector(".NavigationButton");
-
-
+        
         // Wait for the model to finish loading
         mv3.addEventListener("load", function() {
             showButton();
@@ -269,18 +268,27 @@
             previous.style.display = "block";
             next.style.display = "block";
         }
+        
+        let lastInteractionTime = null;
+        const interactionTimeout = 2000; // 2 seconds
 
-        // hide the button when the user interacts with the model
-        mv3.addEventListener("camera-change", (event) => {
-            if (event.detail.source === "user-interaction") {
-                console.log(event.detail.source);
+
+        function onUserInteraction(event) {
+            if (event.detail.source === 'user-interaction') {
+                lastInteractionTime = new Date();
                 hideButton();
-            } else {
-                console.log(event.detail.source);
+            }
+        }
+
+        function checkInteractionTimeout() {
+            const currentTime = new Date();
+            if (lastInteractionTime && currentTime - lastInteractionTime >= interactionTimeout) {
                 showButton();
             }
-        });
+        }
 
+        mv3.addEventListener('camera-change', onUserInteraction);
+        setInterval(checkInteractionTimeout, 500); // check every half a second
     </script>
     <!-- Loads <model-viewer> for browsers: -->
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.0.1/model-viewer.min.js"></script>
