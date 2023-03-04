@@ -273,8 +273,10 @@
         // hide the button when the user interacts with the model
         mv3.addEventListener("camera-change", (event) => {
             if (event.detail.source === "user-interaction") {
+                console.log(event.detail.source);
                 hideButton();
             } else {
+                console.log(event.detail.source);
                 showButton();
             }
         });
