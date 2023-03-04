@@ -19,6 +19,9 @@
     <button class="ResetButton" style="display: none;" onclick="resetCameraPercent()">
         Reset
     </button>
+    <button id="interpolate-button" onclick="toggleInterpolation()">
+        Start
+    </button>
     <!-- <model-viewer> HTML element -->
     <model-viewer src="../Assets/3D/OG_R4.glb" id="modelviewer" camera-controls touch-action="none"
         interaction-prompt="none" poster="../Assets/poster04.png" shadow-intensity="1"
@@ -234,7 +237,7 @@
 
         let index = 0;
 
-        const startButton = document.createElement('button');
+        const startButton = document.querySelector('#interpolate-button'); 
         startButton.textContent = 'Start';
         startButton.addEventListener('click', () => {
             setInterval(() => {
@@ -243,7 +246,6 @@
                 funcArr[index]();
             }, 3000);
         });
-        document.body.appendChild(startButton);         
     </script>
     <script>
         const mv3 = document.querySelector("#modelviewer");
@@ -251,6 +253,11 @@
         const previous = document.querySelector("#previous");
         const next = document.querySelector("#next");
         const navigationbutton = document.querySelector(".NavigationButton");
+        
+        let interval;
+        let isInterpolating = false;
+        let lastInteractionTime = null;
+        const interactionTimeout = 700; // 1 second
         
         // Wait for the model to finish loading
         mv3.addEventListener("load", function() {
@@ -269,10 +276,6 @@
             next.style.display = "block";
         }
         
-        let lastInteractionTime = null;
-        const interactionTimeout = 1000; // 1 second
-
-
         function onUserInteraction(event) {
             if (event.detail.source === 'user-interaction') {
                 lastInteractionTime = new Date();
@@ -289,6 +292,38 @@
 
         mv3.addEventListener('camera-change', onUserInteraction);
         setInterval(checkInteractionTimeout, 500); // check every half a second
+        
+        // function to toggle between Start and Pause states
+        function toggleInterpolation() {
+            let button = document.getElementById("interpolate-button");
+  
+            if (isInterpolating) {
+                // pause interpolation
+                clearInterval(interval);
+                interval = null;
+                button.innerHTML = "Start";
+                isInterpolating = false;
+            } else {
+                // start interpolation
+                let currentIndex = 0;
+                interval = setInterval(() => {
+                    currentIndex = (currentIndex + 1) % funcArr.length;
+                    let currentFunc = funcArr[currentIndex];
+                }, 3000);
+                button.innerHTML = "Pause";
+                isInterpolating = true;
+            }
+        }
+        
+        // function to pause interpolation when model viewer is being interacted with
+        function pauseInterpolation() {
+            if (isInterpolating) {
+                toggleInterpolation();
+            }
+        }
+
+        // set up event listener for model viewer
+        mv3.addEventListener("camera-change", pauseInterpolation);
     </script>
     <!-- Loads <model-viewer> for browsers: -->
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.0.1/model-viewer.min.js"></script>
