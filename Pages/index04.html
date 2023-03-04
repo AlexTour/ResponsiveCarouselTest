@@ -267,14 +267,10 @@
                 previous.style.display = "none";
                 next.style.display = "none";
             }
-        });
-        
-        // Wait for the model to finish loading
-        mv3.addEventListener("interact-stopped", (event) => {
-            if (event.detail.source === "none") {
+            else {
                 resetbutton.style.display = "block";
                 previous.style.display = "block";
-                next.style.display = "block";
+                next.style.display = "block";          
             }
         });
     </script>
