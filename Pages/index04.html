@@ -271,7 +271,7 @@
         
         // Wait for the model to finish loading
         mv3.addEventListener("interact-stopped", (event) => {
-            if (event.detail.source === "automatic") {
+            if (event.detail.source === "none") {
                 resetbutton.style.display = "block";
                 previous.style.display = "block";
                 next.style.display = "block";
