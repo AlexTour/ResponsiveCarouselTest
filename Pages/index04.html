@@ -296,11 +296,11 @@
         mv3.addEventListener('camera-change', onUserInteraction);
         setInterval(checkInteractionTimeout, 500); // check every half a second
         
+        let index = 0;
+        
         // function to toggle between Start and Pause states
         function toggleInterpolation() {
-            
-            let index = 0;
-  
+                 
             if (isInterpolating) {
                 // pause interpolation
                 clearInterval(interval);
