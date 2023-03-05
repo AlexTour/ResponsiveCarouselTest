@@ -308,9 +308,9 @@
                 startButton.innerHTML = "Start";
                 /*funcArr[currentIndex];*/
                 isInterpolating = false;
+                console.log("isInterpolating went from true to false");
             } else {
                 // start interpolation       
-                const startButton = document.querySelector('#interpolate-button'); 
                 interval = setInterval(() => {
                     console.log(index);
                     index = (index + 1) % funcArr.length;
@@ -318,12 +318,14 @@
                 }, 3000);
                 startButton.innerHTML = "Pause";
                 isInterpolating = true;
+                console.log("isInterpolating went from true to false");
             }
         }
         
         // function to pause interpolation when model viewer is being interacted with
         function pauseInterpolation() {
             if (isInterpolating) {
+                console.log("camera-change called pauseInterpolation method which call toggleInterpolation");
                 toggleInterpolation();
             }
         }
