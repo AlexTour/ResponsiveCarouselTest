@@ -214,26 +214,28 @@
             }
         ];
 
-        let i = 0;
+        let i = -1;
 
         let btn = document.getElementById('next'); /* getElementsByTagName('button')[1];  */
         btn.onclick = function () {
-            if (i >= funcArr.length) {
+            i++;
+            if (i == funcArr.length) {
                 i = 0;
             }
-            funcArr[i](); // first call function and then, increment the value of i i++ % funcArr.length
-            i++;
+            funcArr[i](); // first call function and then, increment the value of i i++ % funcArr.length          
             console.log("Index: " + i + " out of " + funcArr.length);
+            
         }
 
         let btn1 = document.getElementById('previous');
         btn1.onclick = function () {
-            if (i == 0) {
-                i = funcArr.length;
-            }
             i--;
+            if (i < 0) {
+                i = funcArr.length-1;
+            }
             funcArr[i](); // first call function and then, increment the value of i
             console.log("Index: " + i + " out of " + funcArr.length);
+
         }
 
         /*let index = 0;
