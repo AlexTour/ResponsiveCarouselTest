@@ -331,7 +331,11 @@
         }
 
         // set up event listener for model viewer
-        //mv3.addEventListener("camera-change", pauseInterpolation);
+        mv3.addEventListener('camera-change', event => {
+            if (event.detail.source === 'user-interaction') {
+                pauseInterpolation();
+            }
+        });
     </script>
     <!-- Loads <model-viewer> for browsers: -->
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.0.1/model-viewer.min.js"></script>
