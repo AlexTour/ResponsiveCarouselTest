@@ -169,7 +169,7 @@ model-viewer {
   bottom: 0px;
 }
 
-.interpolate-button {
+#interpolate-button {
   position: absolute;
   z-index: 1;
   bottom: 10%;
