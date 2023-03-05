@@ -259,7 +259,7 @@
         let interval;
         let isInterpolating = false;
         let lastInteractionTime = null;
-        const interactionTimeout = 700; // 1 second
+        const interactionTimeout = 600;
         
         // Wait for the model to finish loading
         mv2.addEventListener("load", function() {
@@ -295,7 +295,7 @@
         }
 
         mv2.addEventListener('camera-change', onUserInteraction);
-        setInterval(checkInteractionTimeout, 500); // check every half a second
+        setInterval(checkInteractionTimeout, 300); 
         
         let index = 0;
         
