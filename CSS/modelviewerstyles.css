@@ -151,8 +151,7 @@ model-viewer {
 }
 
 .ResetButton {
-  background-color: #424242;
-  border: none;
+  background-color: rgba(45, 45, 45, 0.3);
   color: white;
   padding: 10px 32px;
   text-align: center;
@@ -167,13 +166,15 @@ model-viewer {
   position: absolute;
   z-index: 1;
   bottom: 0px;
+  -webkit-backdrop-filter: blur(10px);  
+  border: 2px solid #ffffff;
 }
 
 #interpolate-button {
   position: absolute;
   z-index: 1;
   bottom: 10%;
-  background-color: #424242;
+  background-color: rgba(45, 45, 45, 0.3);
   border: none;
   color: white;
   padding: 10px 32px;
@@ -186,6 +187,8 @@ model-viewer {
   margin: 10px 10px;
   cursor: pointer;
   font-weight: bold;
+  -webkit-backdrop-filter: blur(10px);  
+  border: 2px solid #ffffff;
 }
 
 @keyframes circle {
