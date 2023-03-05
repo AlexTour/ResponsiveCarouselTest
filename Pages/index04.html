@@ -246,9 +246,7 @@
                 funcArr[index]();
             }, 3000);
         });*/
-    </script>
-    <script>
-        const mv3 = document.querySelector("#modelviewer");
+        
         const resetbutton = document.querySelector(".ResetButton");
         const startButton = document.querySelector('#interpolate-button'); 
         const previous = document.querySelector("#previous");
@@ -261,7 +259,7 @@
         const interactionTimeout = 700; // 1 second
         
         // Wait for the model to finish loading
-        mv3.addEventListener("load", function() {
+        mv2.addEventListener("load", function() {
             showButton();
         });
 
@@ -293,7 +291,7 @@
             }
         }
 
-        mv3.addEventListener('camera-change', onUserInteraction);
+        mv2.addEventListener('camera-change', onUserInteraction);
         setInterval(checkInteractionTimeout, 500); // check every half a second
         
         let index = 0;
@@ -312,9 +310,9 @@
             } else {
                 // start interpolation       
                 interval = setInterval(() => {
-                    console.log(index);
-                    index = (index + 1) % funcArr.length;
-                    funcArr[index]();
+                    console.log(i);
+                    i = (i + 1) % funcArr.length;
+                    funcArr[i]();
                 }, 3000);
                 startButton.innerHTML = "Pause";
                 isInterpolating = true;
@@ -331,7 +329,7 @@
         }
 
         // set up event listener for model viewer
-        mv3.addEventListener('camera-change', event => {
+        mv2.addEventListener('camera-change', event => {
             if (event.detail.source === 'user-interaction') {
                 pauseInterpolation();
             }
