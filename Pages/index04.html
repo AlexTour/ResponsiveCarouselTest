@@ -221,8 +221,9 @@
             if (i >= funcArr.length) {
                 i = 0;
             }
-            funcArr[i++](); // first call function and then, increment the value of i i++ % funcArr.length
-            console.log("Next " + i);
+            i++;
+            funcArr[i](); // first call function and then, increment the value of i i++ % funcArr.length
+            console.log("Index: " + i + " out of " + funcArr.length);
         }
 
         let btn1 = document.getElementById('previous');
@@ -232,7 +233,7 @@
             }
             i--;
             funcArr[i](); // first call function and then, increment the value of i
-            console.log("Previous " + i);
+            console.log("Index: " + i + " out of " + funcArr.length);
         }
 
         /*let index = 0;
