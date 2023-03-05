@@ -114,10 +114,12 @@ model-viewer {
   height: 100%;
   border-radius: 50%;
   border: none;
-  background-color: #7c7c7c;
   font-weight: bold;
   font-size: larger;
   color: white;
+  -webkit-backdrop-filter: blur(10px);
+  border: 2px solid #ffffff;
+  background-color: rgba(45, 45, 45, 0.3);
 }
 
 
