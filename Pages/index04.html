@@ -298,6 +298,8 @@
         
         // function to toggle between Start and Pause states
         function toggleInterpolation() {
+            
+            let index = 0;
   
             if (isInterpolating) {
                 // pause interpolation
@@ -307,12 +309,16 @@
                 /*funcArr[currentIndex];*/
                 isInterpolating = false;
             } else {
-                // start interpolation
-                let currentIndex = 0;
-                interval = setInterval(() => {
-                    currentIndex = (currentIndex + 1) % funcArr.length;
-                    let currentFunc = funcArr[currentIndex];
+                // start interpolation       
+                const startButton = document.querySelector('#interpolate-button'); 
+                startButton.textContent = 'Start';
+                startButton.addEventListener('click', () => {
+                setInterval(() => {
+                    console.log(index);
+                    index = (index + 1) % funcArr.length;
+                    funcArr[index]();
                 }, 3000);
+                });
                 startButton.innerHTML = "Pause";
                 isInterpolating = true;
             }
