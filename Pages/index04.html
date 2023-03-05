@@ -19,7 +19,7 @@
     <button class="ResetButton" style="display: none;" onclick="resetCameraPercent()">
         Reset
     </button>
-    <button id="interpolate-button" style="display: none;" onclick="toggleInterpolation()">
+    <button id="interpolate-button" onclick="toggleInterpolation()" style="display: none;" onclick="toggleInterpolation()">
         Start
     </button>
     <!-- <model-viewer> HTML element -->
@@ -311,14 +311,11 @@
             } else {
                 // start interpolation       
                 const startButton = document.querySelector('#interpolate-button'); 
-                startButton.textContent = 'Start';
-                startButton.addEventListener('click', () => {
-                setInterval(() => {
+                interval = setInterval(() => {
                     console.log(index);
                     index = (index + 1) % funcArr.length;
                     funcArr[index]();
                 }, 3000);
-                });
                 startButton.innerHTML = "Pause";
                 isInterpolating = true;
             }
