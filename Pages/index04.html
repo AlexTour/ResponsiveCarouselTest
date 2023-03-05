@@ -22,6 +22,9 @@
     <button id="interpolate-button" onclick="toggleInterpolation()" style="display: none;" onclick="toggleInterpolation()">
         Start
     </button>
+    <div class="round-time-bar" data-style="smooth" style="--duration: 3;">
+        <div></div>
+    </div>
     <!-- <model-viewer> HTML element -->
     <model-viewer src="../Assets/3D/OG_R4.glb" id="modelviewer" camera-controls touch-action="none"
         interaction-prompt="none" poster="../Assets/poster04.png" shadow-intensity="1"
@@ -215,6 +218,7 @@
         ];
 
         let i = -1;
+        const bars = document.querySelectorAll(".round-time-bar");
 
         let btn = document.getElementById('next'); /* getElementsByTagName('button')[1];  */
         btn.onclick = function () {
@@ -222,7 +226,12 @@
             if (i == funcArr.length) {
                 i = 0;
             }
-            funcArr[i](); // first call function and then, increment the value of i i++ % funcArr.length          
+            funcArr[i](); // first call function and then, increment the value of i i++ % funcArr.length         
+            bars.forEach((bar) => {
+                bar.classList.remove("round-time-bar");
+                bar.offsetWidth;
+                bar.classList.add("round-time-bar");
+            });
             console.log("Index: " + i + " out of " + funcArr.length);
             
         }
@@ -234,6 +243,11 @@
                 i = funcArr.length-1;
             }
             funcArr[i](); // first call function and then, increment the value of i
+            bars.forEach((bar) => {
+                bar.classList.remove("round-time-bar");
+                bar.offsetWidth;
+                bar.classList.add("round-time-bar");
+            });
             console.log("Index: " + i + " out of " + funcArr.length);
 
         }
@@ -316,6 +330,11 @@
                     console.log(i);
                     i = (i + 1) % funcArr.length;
                     funcArr[i]();
+                    bars.forEach((bar) => {
+                    bar.classList.remove("round-time-bar");
+                    bar.offsetWidth;
+                    bar.classList.add("round-time-bar");
+                    });
                 }, 3000);
                 startButton.innerHTML = "Pause";
                 isInterpolating = true;
