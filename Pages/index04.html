@@ -235,7 +235,7 @@
             console.log("Previous " + i);
         }
 
-        let index = 0;
+        /*let index = 0;
 
         const startButton = document.querySelector('#interpolate-button'); 
         startButton.textContent = 'Start';
@@ -245,11 +245,12 @@
                 index = (index + 1) % funcArr.length;
                 funcArr[index]();
             }, 3000);
-        });
+        });*/
     </script>
     <script>
         const mv3 = document.querySelector("#modelviewer");
         const resetbutton = document.querySelector(".ResetButton");
+        const startButton = document.querySelector('#interpolate-button'); 
         const previous = document.querySelector("#previous");
         const next = document.querySelector("#next");
         const navigationbutton = document.querySelector(".NavigationButton");
@@ -266,12 +267,14 @@
 
         function hideButton() {
             resetbutton.style.display = "none";
+            startButton.style.display = "none";
             previous.style.display = "none";
             next.style.display = "none";
         }
 
         function showButton() {
             resetbutton.style.display = "block";
+            startButton.style.display = "block";
             previous.style.display = "block";
             next.style.display = "block";
         }
@@ -295,13 +298,12 @@
         
         // function to toggle between Start and Pause states
         function toggleInterpolation() {
-            let button = document.getElementById("interpolate-button");
   
             if (isInterpolating) {
                 // pause interpolation
                 clearInterval(interval);
                 interval = null;
-                button.innerHTML = "Start";
+                startButton.innerHTML = "Start";
                 /*funcArr[currentIndex];*/
                 isInterpolating = false;
             } else {
@@ -311,7 +313,7 @@
                     currentIndex = (currentIndex + 1) % funcArr.length;
                     let currentFunc = funcArr[currentIndex];
                 }, 3000);
-                button.innerHTML = "Pause";
+                startButton.innerHTML = "Pause";
                 isInterpolating = true;
             }
         }
