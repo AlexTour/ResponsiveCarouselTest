@@ -22,7 +22,7 @@
     <button id="interpolate-button" onclick="toggleInterpolation()" style="display: none;" onclick="toggleInterpolation()">
         Start
     </button>
-    <div class="round-time-bar" data-style="smooth" style="--duration: 3; width: 80%;">
+    <div data-style="smooth" style="--duration: 3; width: 80%;">
         <div></div>
     </div>
     <!-- <model-viewer> HTML element -->
@@ -325,7 +325,9 @@
                     i = (i + 1) % funcArr.length;
                     funcArr[i]();
                     bars.forEach((bar) => {
-                    bar.classList.remove("round-time-bar");
+                    if (bar.classList.contains("round-time-bar")) {
+                        bar.classList.remove("round-time-bar");
+                    }          
                     bar.offsetWidth;
                     bar.classList.add("round-time-bar");
                     });
