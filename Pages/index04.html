@@ -229,8 +229,8 @@
                 i = 0;
             }
             funcArr[i](); // first call function and then, increment the value of i i++ % funcArr.length         
-            score.innerHTML = "Index: " + (i++) + " out of " + (funcArr.length-1);
-            console.log("Index: " + (i++) + " out of " + funcArr.length-1);
+            score.innerHTML = "Index: " + (i + 1) + " out of " + (funcArr.length-1);
+            console.log("Index: " + (i + 1) + " out of " + funcArr.length-1);
             
         }
 
@@ -241,8 +241,8 @@
                 i = funcArr.length-1;
             }
             funcArr[i](); // first call function and then, increment the value of i          
-            score.innerHTML = "Index: " + (i++) + " out of " + (funcArr.length-1);
-            console.log("Index: " + (i++) + " out of " + funcArr.length-1);
+            score.innerHTML = "Index: " + (i + 1) + " out of " + (funcArr.length-1);
+            console.log("Index: " + (i + 1) + " out of " + funcArr.length-1);
 
         }
 
