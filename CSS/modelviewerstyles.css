@@ -187,7 +187,7 @@ model-viewer {
   background-color: rgba(45, 45, 45, 0.3);
   border: none;
   color: white;
-  padding: 10px 32px;
+  padding: 10px 20px;
   text-align: center;
   justify-content: center;
   align-items: center;
@@ -199,6 +199,13 @@ model-viewer {
   font-weight: bold;
   -webkit-backdrop-filter: blur(10px);  
   border: 2px solid #ffffff;
+  border-radius: 2em;
+  gap: 10px;
+}
+
+#interpolate-button img {
+  width: 20px;
+  height: 20px;
 }
 
 #score {
