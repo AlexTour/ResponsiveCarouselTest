@@ -229,11 +229,10 @@
             if (i == funcArr.length) {
                 i = 0;
             }
-            funcArr[i](); // first call function and then, increment the value of i i++ % funcArr.length         
-            score.innerHTML = "Index: " + i + " out of " + funcArr.length;
+            funcArr[i](); // first call function and then, increment the value of i i++ % funcArr.length                   
             let temp1 = i + 1;
             console.log("Index: " + temp1 + " out of " + length);
-            
+            score.innerHTML = "Index: " + temp1 + " out of " + length;            
         }
 
         let btn1 = document.getElementById('previous');
@@ -242,11 +241,10 @@
             if (i < 0) {
                 i = funcArr.length-1;
             }
-            funcArr[i](); // first call function and then, increment the value of i          
-            score.innerHTML = "Index: " + i + " out of " + funcArr.length;
+            funcArr[i](); // first call function and then, increment the value of i             
             let temp2 = i + 1;
             console.log("Index: " + temp2 + " out of " + length);
-
+            score.innerHTML = "Index: " + temp2 + " out of " + length;           
         }
 
         /*let index = 0;
