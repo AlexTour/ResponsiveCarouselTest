@@ -21,7 +21,7 @@
         <span>RESET VIEW</span>
     </button>
     <button id="interpolate-button" onclick="toggleInterpolation()" style="display: none;" onclick="toggleInterpolation()">
-        ⏵
+        PLAY
     </button>
     <div class="round-time-bar" data-style="smooth" style="--duration: 3; width: 80%;">
         <div></div>
@@ -316,7 +316,7 @@
                 // pause interpolation
                 clearInterval(interval);
                 interval = null;
-                startButton.innerHTML = "⏵";
+                startButton.innerHTML = "RESUME";
                 /*funcArr[currentIndex];*/
                 isInterpolating = false;
                 console.log("isInterpolating went from true to false");
@@ -336,7 +336,7 @@
                     bar.classList.add("round-time-bar");
                     });
                 }, 3000);
-                startButton.innerHTML = "⏸";
+                startButton.innerHTML = "PAUSE";
                 isInterpolating = true;
                 console.log("isInterpolating went from false to true");
             }
