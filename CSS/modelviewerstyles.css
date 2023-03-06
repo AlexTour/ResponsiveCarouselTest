@@ -196,11 +196,12 @@ model-viewer {
 #score {
   position: absolute;
   z-index: 1;
-  left: 50%;
   color: white;
   font-size: 15px;
   font-weight: bold;
   bottom: 80%;
+  text-align: center;
+  width: 100%;
 }
 
 .round-time-bar {
