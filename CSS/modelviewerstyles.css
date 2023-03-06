@@ -155,7 +155,7 @@ model-viewer {
 .ResetButton {
   background-color: rgba(45, 45, 45, 0.3);
   color: white;
-  padding: 10px 32px;
+  padding: 10px 20px;
   text-align: center;
   justify-content: center;
   align-items: center;
@@ -165,7 +165,7 @@ model-viewer {
   font-size: 13px;
   text-transform: uppercase;
   margin: 10px 10px;
-  border-radius: 5px;
+  border-radius: 2em;
   cursor: pointer;
   font-weight: bold;
   position: absolute;
