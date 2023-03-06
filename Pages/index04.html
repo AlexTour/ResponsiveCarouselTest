@@ -21,7 +21,8 @@
         <span>RESET VIEW</span>
     </button>
     <button id="interpolate-button" onclick="toggleInterpolation()" style="display: none;" onclick="toggleInterpolation()">
-        PLAY
+        <img src="../Assets/play.png" alt="play">
+        <span>PLAY</span>
     </button>
     <div class="round-time-bar" data-style="smooth" style="--duration: 3; width: 80%;">
         <div></div>
@@ -316,7 +317,10 @@
                 // pause interpolation
                 clearInterval(interval);
                 interval = null;
-                startButton.innerHTML = "RESUME";
+                // Update the image and text
+                startButton.querySelector('img').src = '../Assets/play.png';
+                startButton.querySelector('span').textContent = 'RESUME';
+                /*startButton.innerHTML = "RESUME";*/
                 /*funcArr[currentIndex];*/
                 isInterpolating = false;
                 console.log("isInterpolating went from true to false");
@@ -336,7 +340,9 @@
                     bar.classList.add("round-time-bar");
                     });
                 }, 3000);
-                startButton.innerHTML = "PAUSE";
+                startButton.querySelector('img').src = '../Assets/pause.png';
+                startButton.querySelector('span').textContent = 'PAUSE';
+                /*startButton.innerHTML = "PAUSE";*/
                 isInterpolating = true;
                 console.log("isInterpolating went from false to true");
             }
