@@ -159,10 +159,13 @@ model-viewer {
   text-align: center;
   justify-content: center;
   align-items: center;
+  gap: 10px;
   text-decoration: none;
   display: flex;
   font-size: 13px;
+  text-transform: uppercase;
   margin: 10px 10px;
+  border-radius: 5px;
   cursor: pointer;
   font-weight: bold;
   position: absolute;
@@ -170,6 +173,11 @@ model-viewer {
   bottom: 0px;
   -webkit-backdrop-filter: blur(10px);  
   border: 2px solid #ffffff;
+}
+
+.ResetButton img {
+  width: 20px;
+  height: 20px;
 }
 
 #interpolate-button {
