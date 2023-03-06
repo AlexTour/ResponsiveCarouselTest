@@ -219,6 +219,7 @@
         ];
 
         let i = -1;
+        const length = funcArr.length - 1;
         const bars = document.querySelectorAll(".round-time-bar");
         let score = document.getElementById("score");
 
@@ -230,7 +231,8 @@
             }
             funcArr[i](); // first call function and then, increment the value of i i++ % funcArr.length         
             score.innerHTML = "Index: " + i + " out of " + funcArr.length;
-            console.log("Index: " + i + " out of " + funcArr.length);
+            let temp1 = i + 1;
+            console.log("Index: " + temp1 + " out of " + length);
             
         }
 
@@ -242,7 +244,8 @@
             }
             funcArr[i](); // first call function and then, increment the value of i          
             score.innerHTML = "Index: " + i + " out of " + funcArr.length;
-            console.log("Index: " + i + " out of " + funcArr.length);
+            let temp2 = i + 1;
+            console.log("Index: " + temp2 + " out of " + length);
 
         }
 
