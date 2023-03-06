@@ -40,6 +40,7 @@
     <div class="right-half">
         <button class="NavigationButton" style="display: none;" id="next">&#8250;</button>
     </div>
+    <p id="score"></p>
     <script src="../Scripts/script.js"></script>
     <script>
         const mv = document.querySelector("#modelviewer");
@@ -219,6 +220,7 @@
 
         let i = -1;
         const bars = document.querySelectorAll(".round-time-bar");
+        let score = document.querySelectorAll("score");
 
         let btn = document.getElementById('next'); /* getElementsByTagName('button')[1];  */
         btn.onclick = function () {
@@ -232,7 +234,8 @@
                 bar.offsetWidth;
                 bar.classList.add("round-time-bar");
             });
-            console.log("Index: " + i + " out of " + funcArr.length);
+            score.innerHTML = "Index: " + (i++) + " out of " + funcArr.length-1;
+            console.log("Index: " + (i++) + " out of " + funcArr.length-1);
             
         }
 
@@ -248,7 +251,8 @@
                 bar.offsetWidth;
                 bar.classList.add("round-time-bar");
             });
-            console.log("Index: " + i + " out of " + funcArr.length);
+            score.innerHTML = "Index: " + (i++) + " out of " + funcArr.length-1;
+            console.log("Index: " + (i++) + " out of " + funcArr.length-1);
 
         }
 
