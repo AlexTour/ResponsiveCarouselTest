@@ -325,6 +325,7 @@
                     console.log(i);
                     i = (i + 1) % funcArr.length;
                     funcArr[i]();
+                    score.innerHTML = "Highlight: " + temp1 + " out of " + length; 
                     bars.forEach((bar) => {
                     if (bar.classList.contains("round-time-bar")) {
                         bar.classList.remove("round-time-bar");
