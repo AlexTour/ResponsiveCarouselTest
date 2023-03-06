@@ -222,6 +222,7 @@
         const length = funcArr.length - 1;
         const bars = document.querySelectorAll(".round-time-bar");
         let score = document.getElementById("score");
+        let temp1 = 0;
 
         let btn = document.getElementById('next'); /* getElementsByTagName('button')[1];  */
         btn.onclick = function () {
@@ -230,7 +231,7 @@
                 i = 0;
             }
             funcArr[i](); // first call function and then, increment the value of i i++ % funcArr.length                   
-            let temp1 = i + 1;
+            temp1 = i + 1;
             console.log("Highlight: " + temp1 + " out of " + length);
             score.innerHTML = "Highlight: " + temp1 + " out of " + length;            
         }
