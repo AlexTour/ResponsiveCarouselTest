@@ -210,6 +210,8 @@ model-viewer {
   bottom: 80%;
   text-align: center;
   width: 100%;
+  text-transform: uppercase;
+  font-family: Arial Rounded MT Bold;
 }
 
 .round-time-bar {
