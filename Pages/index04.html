@@ -17,7 +17,7 @@
         <img class="logo-responsive" id="logo" src="../Assets/dali-logo.png" alt="logo">
     </div>
     <button class="ResetButton" style="display: none;" onclick="resetCameraPercent()">
-        <img class="btn-with-image" src="../Assets/reset.png" alt="reset">
+        <img src="../Assets/reset.png" alt="reset">
         <span>RESET VIEW</span>
     </button>
     <button id="interpolate-button" onclick="toggleInterpolation()" style="display: none;" onclick="toggleInterpolation()">
@@ -316,7 +316,7 @@
                 // pause interpolation
                 clearInterval(interval);
                 interval = null;
-                startButton.innerHTML = "PLAY";
+                startButton.innerHTML = "RESUME";
                 /*funcArr[currentIndex];*/
                 isInterpolating = false;
                 console.log("isInterpolating went from true to false");
