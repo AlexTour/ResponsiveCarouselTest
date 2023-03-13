@@ -101,118 +101,141 @@
                 mv2.cameraOrbit = '90deg 90deg 0.0198m'
                 mv2.cameraTarget = '-0.08m 0.02m 0.04m'
                 mv2.fieldOfView = '60deg'
+                CameraFadeOutAnimation();
             },
 
             function () {
                 mv2.cameraOrbit = '90deg 90deg 0.0198m'
                 mv2.cameraTarget = '-0.08m 0.02m 0.03m'
                 mv2.fieldOfView = '60deg'
+                CameraFadeOutAnimation();
             },
 
             function () {
                 mv2.cameraOrbit = '90deg 90deg 0.0198m'
                 mv2.cameraTarget = '-0.08m 0.02m 0.02m'
                 mv2.fieldOfView = '60deg'
+                CameraFadeOutAnimation();
             },
             function () {
                 mv2.cameraOrbit = '90deg 90deg 0.0198m'
                 mv2.cameraTarget = '-0.08m 0.02m 0.01m'
                 mv2.fieldOfView = '60deg'
+                CameraFadeOutAnimation();
             },
             function () {
                 mv2.cameraOrbit = '90deg 90deg 0.0198m'
                 mv2.cameraTarget = '-0.08m 0.02m 0m'
                 mv2.fieldOfView = '60deg'
+                CameraFadeOutAnimation();
             },
             function () {
                 mv2.cameraOrbit = '90deg 90deg 0.0198m'
                 mv2.cameraTarget = '-0.08m 0.02m -0.01m'
                 mv2.fieldOfView = '60deg'
+                CameraFadeOutAnimation();
             },
             function () {
                 mv2.cameraOrbit = '0deg 90deg 0.01074m'
                 mv2.cameraTarget = '-0.05458m 0.017m 0m'
                 mv2.fieldOfView = '60deg'
+                CameraFadeInAnimation(); 
             },
             function () {
                 mv2.cameraOrbit = '-90deg 90deg 0.03453m'
                 mv2.cameraTarget = '-0.03m 0.017m 0m'
                 mv2.fieldOfView = '60deg'
+                CameraFadeOutAnimation();
             },
             function () {
                 mv2.cameraOrbit = '90deg 90deg 0.03453m'
                 mv2.cameraTarget = '-0.05m 0.017m 0.03m'
                 mv2.fieldOfView = '60deg'
+                CameraFadeOutAnimation();
             },
             function () {
                 mv2.cameraOrbit = '180deg 90deg 0.03453m'
                 mv2.cameraTarget = '-0.04m 0.02m 0.04m'
                 mv2.fieldOfView = '60deg'
+                CameraFadeOutAnimation();
             },
             function () {
                 mv2.cameraOrbit = '180deg 90deg 0.03453m'
                 mv2.cameraTarget = '-0.02m 0.02m 0.04m'
                 mv2.fieldOfView = '60deg'
+                CameraFadeOutAnimation();
             },
             function () {
                 mv2.cameraOrbit = '270deg 90deg 0.01417m'
                 mv2.cameraTarget = '-0.02m 0.02m 0.03m'
                 mv2.fieldOfView = '60deg'
+                CameraFadeOutAnimation();
             },
             function () {
                 mv2.cameraOrbit = '450deg 90deg 0.03574m'
                 mv2.cameraTarget = '-0.02m 0.02m 0m'
                 mv2.fieldOfView = '60deg'
+                CameraFadeOutAnimation();
             },
             function () {
                 mv2.cameraOrbit = '360deg 90deg 0.03574m'
                 mv2.cameraTarget = '-0.01m 0.02m -0.02m'
                 mv2.fieldOfView = '60deg'
+                CameraFadeOutAnimation();
             },
             function () {
                 mv2.cameraOrbit = '360deg 90deg 0.03574m'
                 mv2.cameraTarget = '0.01m 0.02m -0.02m'
                 mv2.fieldOfView = '60deg'
+                CameraFadeOutAnimation();
             },
             function () {
                 mv2.cameraOrbit = '270deg 90deg 0.03574m'
                 mv2.cameraTarget = '0.02m 0.02m -0.01m'
                 mv2.fieldOfView = '60deg'
+                CameraFadeOutAnimation();
             },
             function () {
                 mv2.cameraOrbit = '90deg 90deg 0.03574m'
                 mv2.cameraTarget = '0m 0.02m 0.04m'
                 mv2.fieldOfView = '60deg'
+                CameraFadeOutAnimation();
             },
             function () {
                 mv2.cameraOrbit = '180deg 90deg 0.03574m'
                 mv2.cameraTarget = '0.01m 0.02m 0.04m'
                 mv2.fieldOfView = '60deg'
+                CameraFadeOutAnimation();
             },
             function () {
                 mv2.cameraOrbit = '180deg 90deg 0.03574m'
                 mv2.cameraTarget = '0.04m 0.02m 0.04m'
                 mv2.fieldOfView = '60deg'
+                CameraFadeOutAnimation();
             },
             function () {
                 mv2.cameraOrbit = '270deg 90deg 0.03574m'
                 mv2.cameraTarget = '0.05m 0.02m 0.04m'
                 mv2.fieldOfView = '60deg'
+                CameraFadeOutAnimation();
             },
             function () {
                 mv2.cameraOrbit = '450deg 90deg 0.03574m'
                 mv2.cameraTarget = '0.03m 0.02m 0m'
                 mv2.fieldOfView = '60deg'
+                CameraFadeOutAnimation();
             },
             function () {
                 mv2.cameraOrbit = '360deg 90deg 0.03574m'
                 mv2.cameraTarget = '0.04m 0.02m -0.02m'
                 mv2.fieldOfView = '60deg'
+                CameraFadeOutAnimation();
             },
             function () {
                 mv2.cameraOrbit = '360deg 90deg 0.03574m'
                 mv2.cameraTarget = '0.06m 0.02m -0.02m'
                 mv2.fieldOfView = '60deg'
+                CameraFadeOutAnimation();
             },
             function () {
                 mv2.cameraOrbit = '270deg 90deg 0.03097m'
@@ -220,6 +243,19 @@
                 mv2.fieldOfView = '60deg'
             }
         ];
+        
+        
+        const websiteBody = document.querySelector('.website-body');
+       
+        function CameraFadeInAnimation() {
+            websiteBody.classList.add('vignette-effect');             
+        }
+        
+        function CameraFadeOutAnimation() {
+            if (websiteBody.classList.contains('vignette-effect')) {
+                websiteBody.classList.remove('vignette-effect');       
+            } 
+        }
 
         let i = -1;
         const bars = document.querySelectorAll(".round-time-bar");
@@ -235,12 +271,8 @@
             funcArr[i](); // first call function and then, increment the value of i i++ % funcArr.length                   
             temp1 = i + 1;
             console.log("Highlight: " + temp1 + " out of " + funcArr.length);
-            score.innerHTML = "Highlight: " + temp1 + " out of " + funcArr.length;   
-             if (websiteBody.classList.contains('vignette-effect')) {
-                websiteBody.classList.remove('vignette-effect');
-            } else {
-                websiteBody.classList.add('vignette-effect');
-            }
+            score.innerHTML = "Highlight: " + temp1 + " out of " + funcArr.length;
+            
             pauseInterpolation();
         }
 
@@ -254,11 +286,7 @@
             let temp2 = i + 1;
             console.log("Highlight: " + temp2 + " out of " + funcArr.length);
             score.innerHTML = "Highlight: " + temp2 + " out of " + funcArr.length; 
-            if (websiteBody.classList.contains('vignette-effect')) {
-                websiteBody.classList.remove('vignette-effect');
-            } else {
-                websiteBody.classList.add('vignette-effect');
-            }
+  
             pauseInterpolation();
         }
 
@@ -318,9 +346,6 @@
             }
         }
         
-        const websiteBody = document.querySelector('.website-body');
-
-
         mv2.addEventListener('camera-change', onUserInteraction);
         setInterval(checkInteractionTimeout, 1000); 
         
@@ -355,11 +380,6 @@
                     bar.offsetWidth;
                     bar.classList.add("round-time-bar");
                     });
-                    if (websiteBody.classList.contains('vignette-effect')) {
-                        websiteBody.classList.remove('vignette-effect');
-                    } else {
-                        websiteBody.classList.add('vignette-effect');
-                    }
                 }, 3000);
                 startButton.querySelector('img').src = '../Assets/pause.png';
                 startButton.querySelector('span').textContent = 'PAUSE';
