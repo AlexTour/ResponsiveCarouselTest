@@ -236,7 +236,11 @@
             temp1 = i + 1;
             console.log("Highlight: " + temp1 + " out of " + funcArr.length);
             score.innerHTML = "Highlight: " + temp1 + " out of " + funcArr.length;   
-            
+             if (websiteBody.classList.contains('vignette-effect')) {
+                websiteBody.classList.remove('vignette-effect');
+            } else {
+                websiteBody.classList.add('vignette-effect');
+            }
             pauseInterpolation();
         }
 
@@ -250,7 +254,11 @@
             let temp2 = i + 1;
             console.log("Highlight: " + temp2 + " out of " + funcArr.length);
             score.innerHTML = "Highlight: " + temp2 + " out of " + funcArr.length; 
-            
+            if (websiteBody.classList.contains('vignette-effect')) {
+                websiteBody.classList.remove('vignette-effect');
+            } else {
+                websiteBody.classList.add('vignette-effect');
+            }
             pauseInterpolation();
         }
 
@@ -309,6 +317,9 @@
                 showButton();
             }
         }
+        
+        const websiteBody = document.querySelector('.website-body');
+
 
         mv2.addEventListener('camera-change', onUserInteraction);
         setInterval(checkInteractionTimeout, 1000); 
@@ -344,6 +355,11 @@
                     bar.offsetWidth;
                     bar.classList.add("round-time-bar");
                     });
+                    if (websiteBody.classList.contains('vignette-effect')) {
+                        websiteBody.classList.remove('vignette-effect');
+                    } else {
+                        websiteBody.classList.add('vignette-effect');
+                    }
                 }, 3000);
                 startButton.querySelector('img').src = '../Assets/pause.png';
                 startButton.querySelector('span').textContent = 'PAUSE';
