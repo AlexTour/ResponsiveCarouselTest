@@ -8,6 +8,7 @@
     <meta name="description" content="&lt;model-viewer&gt; template">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link type="text/css" href="../CSS/modelviewerstyles.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"vrel="stylesheet">
     <!-- OPTIONAL: The :focus-visible polyfill removes the focus ring for some input types -->
     <script src="https://unpkg.com/focus-visible@5.0.2/dist/focus-visible.js" defer></script>
 </head>
@@ -18,7 +19,7 @@
     </div>
     <div class="website-body"></div>
     <button class="ResetButton" style="display: none;" onclick="resetCameraPercent()">
-        <img src="../Assets/reset.png" alt="reset">
+        <img class="material-icons" style="width=30px; color:white" src="../Assets/reset.png" alt="reset">
         <span>RESET VIEW</span>
     </button>
     <button id="interpolate-button" onclick="toggleInterpolation()" style="display: none;" onclick="toggleInterpolation()">
