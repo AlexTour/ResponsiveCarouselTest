@@ -102,7 +102,7 @@ model-viewer {
 
 .Hotspot > * {
   opacity: 1;
-  transform: translateY(-50%);
+  /*transform: translateY(-50%);*/
 }
 
 .HotspotAnnotation{
