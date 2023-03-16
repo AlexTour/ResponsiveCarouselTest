@@ -49,7 +49,7 @@
     <div class="right-half">
         <button class="NavigationButton" style="display: none;" id="next">&#8250;</button>
     </div>
-    <p id="score">Score</p>
+    <p id="score" style="display: none;">Score</p>
     <script src="../Scripts/script.js"></script>
     <script>
         const mv = document.querySelector("#modelviewer");
@@ -315,6 +315,7 @@
         const previous = document.querySelector("#previous");
         const next = document.querySelector("#next");
         const navigationbutton = document.querySelector(".NavigationButton");
+        const score = document.querySelector("#score");
         
         let interval;
         let isInterpolating = false;
@@ -331,6 +332,7 @@
             startButton.style.display = "none";
             previous.style.display = "none";
             next.style.display = "none";
+            score.style.display = "none";
         }
 
         function showButton() {
@@ -338,6 +340,7 @@
             startButton.style.display = "flex";
             previous.style.display = "block";
             next.style.display = "block";
+            score.style.display = "block";
         }
         
         function onUserInteraction(event) {
