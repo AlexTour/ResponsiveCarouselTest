@@ -71,7 +71,8 @@
             hideButton();
             modelViewer2.setAttribute('interaction-prompt', 'auto');
             CameraFadeInAnimation();
-            hotspotHandler();
+            i = 6;
+            hideHotspot();
         }
 
         modelViewer2.querySelectorAll('button').forEach((hotspot) => {
@@ -83,6 +84,8 @@
 
         // Wait for the model to finish loading
         modelViewer.addEventListener('load', async () => {
+            
+            hotspotHandler();
             // Get the material with index 0
             const material1 = modelViewer.model.materials[0];
             const texture1 = await modelViewer.createTexture('../Assets/AsyncTextures/dali_OG_Jesus_DIFF_4K.jpeg');
@@ -102,8 +105,6 @@
 
             // Update the material to reflect the changes
             material2.needsUpdate = true;
-            hotspotHandler();
-
         });
     </script>
     <script>
@@ -255,9 +256,10 @@
         let btn = document.getElementById('next'); /* getElementsByTagName('button')[1];  */
         btn.onclick = function () {
             CameraFadeOutAnimation();
-            hotspotHandler();
                       
-            i++;            
+            i++;   
+            
+            hotspotHandler();
             
             if (i == funcArr.length) {
                 i = 0;
@@ -273,9 +275,10 @@
         let btn1 = document.getElementById('previous');
         btn1.onclick = function () {
             CameraFadeOutAnimation();
-            hotspotHandler();
                    
             i--;
+            
+            hotspotHandler();
                            
             if (i < 0) {
                 i = funcArr.length-1;
@@ -342,7 +345,7 @@
         }
         
         function hotspotHandler() {
-            if (i == 7) {
+            if (i == 6) {
                 showHotspot();     
             }
             else {
