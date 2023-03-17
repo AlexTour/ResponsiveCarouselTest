@@ -71,6 +71,7 @@
             hideButton();
             modelViewer2.setAttribute('interaction-prompt', 'auto');
             CameraFadeInAnimation();
+            hideHotspot();
         }
 
         modelViewer2.querySelectorAll('button').forEach((hotspot) => {
@@ -101,6 +102,7 @@
 
             // Update the material to reflect the changes
             material2.needsUpdate = true;
+            hotspotHandler();
 
         });
     </script>
@@ -253,8 +255,11 @@
         let btn = document.getElementById('next'); /* getElementsByTagName('button')[1];  */
         btn.onclick = function () {
             CameraFadeOutAnimation();
-            
+                      
             i++;
+            
+            hotspotHandler();
+            
             if (i == funcArr.length) {
                 i = 0;
             }
@@ -269,8 +274,11 @@
         let btn1 = document.getElementById('previous');
         btn1.onclick = function () {
             CameraFadeOutAnimation();
-            
+                   
             i--;
+            
+            hotspotHandler();
+            
             if (i < 0) {
                 i = funcArr.length-1;
             }
@@ -299,6 +307,7 @@
         const previous = document.querySelector("#previous");
         const next = document.querySelector("#next");
         const navigationbutton = document.querySelector(".NavigationButton");
+        const hotspot1 = document.querySelector('[slot="hotspot-1"]');
         
         let interval;
         let isInterpolating = false;
@@ -326,6 +335,23 @@
             score.style.display = "block";
         }
         
+        function showHotspot() {
+            hotspot1.style.display = "flex";          
+        }
+        
+        function hideHotspot() {
+            hotspot1.style.display = "none";          
+        }
+        
+        function hotspotHandler() {
+            if (i == 7) {
+                showHotspot();     
+            }
+            else {
+                hideHotspot();
+            }       
+        }
+                      
         function onUserInteraction(event) {
             if (event.detail.source === 'user-interaction') {
                 lastInteractionTime = new Date();
@@ -365,6 +391,7 @@
                 interval = setInterval(() => {
                     console.log(i);
                     i = (i + 1) % funcArr.length;
+                    hotspotHandler();
                     funcArr[i]();
                     temp1 = i + 1;
                     score.innerHTML = "Highlight: " + temp1 + " out of " + funcArr.length; 
