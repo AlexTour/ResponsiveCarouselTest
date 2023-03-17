@@ -392,8 +392,10 @@
                 interval = setInterval(() => {
                     console.log(i);
                     
-                    i = (i + 1) % funcArr.length;
                     hotspotHandler();
+                    
+                    i = (i + 1) % funcArr.length;
+                    
                     funcArr[i]();
                     temp1 = i + 1;
                     score.innerHTML = "Highlight: " + temp1 + " out of " + funcArr.length; 
