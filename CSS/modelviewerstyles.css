@@ -71,7 +71,7 @@ model-viewer {
   background-color: rgba(45, 45, 45, 0.3);
   border: none;
   color: white;
-  padding: 6px 6px;
+  padding: 1px;
   text-align: center;
   justify-content: center;
   align-items: center;
