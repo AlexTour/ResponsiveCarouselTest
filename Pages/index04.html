@@ -71,7 +71,7 @@
             hideButton();
             modelViewer2.setAttribute('interaction-prompt', 'auto');
             CameraFadeInAnimation();
-            hideHotspot();
+            hotspotHandler();
         }
 
         modelViewer2.querySelectorAll('button').forEach((hotspot) => {
@@ -255,10 +255,9 @@
         let btn = document.getElementById('next'); /* getElementsByTagName('button')[1];  */
         btn.onclick = function () {
             CameraFadeOutAnimation();
-                      
-            i++;
-            
             hotspotHandler();
+                      
+            i++;            
             
             if (i == funcArr.length) {
                 i = 0;
@@ -274,11 +273,10 @@
         let btn1 = document.getElementById('previous');
         btn1.onclick = function () {
             CameraFadeOutAnimation();
+            hotspotHandler();
                    
             i--;
-            
-            hotspotHandler();
-            
+                           
             if (i < 0) {
                 i = funcArr.length-1;
             }
@@ -390,8 +388,9 @@
                 CameraFadeOutAnimation();
                 interval = setInterval(() => {
                     console.log(i);
-                    i = (i + 1) % funcArr.length;
                     hotspotHandler();
+                    i = (i + 1) % funcArr.length;
+                    
                     funcArr[i]();
                     temp1 = i + 1;
                     score.innerHTML = "Highlight: " + temp1 + " out of " + funcArr.length; 
