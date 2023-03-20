@@ -379,10 +379,10 @@
                 CameraFadeOutAnimation();
                 interval = setInterval(() => {
                     console.log(i);
+                      
+                    i = (i + 1) % funcArr.length;
                     
                     hotspotHandler();
-                    
-                    i = (i + 1) % funcArr.length;
                     
                     funcArr[i]();
                     temp1 = i + 1;
