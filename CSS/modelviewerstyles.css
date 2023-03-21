@@ -219,7 +219,6 @@ model-viewer {
   margin: 10px 10px;
   border-radius: 2em;
   cursor: pointer;
-  font-weight: bold;
   position: absolute;
   z-index: 2;
   bottom: 0px;
@@ -248,7 +247,6 @@ model-viewer {
   font-size: 13px;
   margin: 10px 10px;
   cursor: pointer;
-  font-weight: bold;
   -webkit-backdrop-filter: blur(10px);  
   border: 1px solid #ffffff;
   border-radius: 2em;
@@ -265,12 +263,11 @@ model-viewer {
   z-index: 1;
   color: white;
   font-size: 15px;
-  font-weight: bold;
   bottom: 80%;
   text-align: center;
   width: 100%;
   text-transform: uppercase;
-  font-family: Arial Rounded MT Bold;
+  font-family: Arial;
 }
 
 .round-time-bar {
