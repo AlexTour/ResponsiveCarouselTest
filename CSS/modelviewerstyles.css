@@ -170,7 +170,7 @@ model-viewer {
   font-size: larger;
   color: white;
   -webkit-backdrop-filter: blur(10px);
-  border: 2px solid #ffffff;
+  border: 1px solid #ffffff;
   background-color: rgba(45, 45, 45, 0.3);
 }
 
