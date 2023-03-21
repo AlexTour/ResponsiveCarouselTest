@@ -39,6 +39,11 @@
                 3d_rotation
             </span>
         </button>
+        <button class="Hotspot" slot="hotspot-2" data-surface="0 0 13506 13464 13507 0.123 0.090 0.787" data-orbit="270deg 90deg 0.009587m" data-visibility-attribute="visible" style="display: none;">
+            <span class="material-symbols-outlined" style="font-size: 34px;">
+                3d_rotation
+            </span> 
+        </button>
         <div class="progress-bar hide" slot="progress-bar">
             <div class="update-bar"></div>
         </div>
@@ -71,7 +76,6 @@
             hideButton();
             modelViewer2.setAttribute('interaction-prompt', 'auto');
             CameraFadeInAnimation();
-            i = 6;
             hideHotspot();
         }
 
