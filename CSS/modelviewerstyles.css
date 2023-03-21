@@ -207,11 +207,11 @@ model-viewer {
 .ResetButton {
   background-color: rgba(45, 45, 45, 0.3);
   color: white;
-  padding: 10px 20px;
+  padding: 5px 15px;
   text-align: center;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: 5px;
   text-decoration: none;
   display: flex;
   font-size: 13px;
@@ -239,7 +239,7 @@ model-viewer {
   background-color: rgba(45, 45, 45, 0.3);
   border: none;
   color: white;
-  padding: 10px 20px;
+  padding: 5px 15px;
   text-align: center;
   justify-content: center;
   align-items: center;
@@ -252,7 +252,7 @@ model-viewer {
   -webkit-backdrop-filter: blur(10px);  
   border: 1px solid #ffffff;
   border-radius: 2em;
-  gap: 10px;
+  gap: 5px;
 }
 
 #interpolate-button img {
