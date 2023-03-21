@@ -76,7 +76,7 @@
             hideButton();
             modelViewer2.setAttribute('interaction-prompt', 'auto');
             CameraFadeInAnimation();
-            hideHotspot();
+            annotation.style.display = 'none'; // Hide the clicked annotation
         }
 
         modelViewer2.querySelectorAll('button').forEach((hotspot) => {
@@ -301,6 +301,7 @@
         const next = document.querySelector("#next");
         const navigationbutton = document.querySelector(".NavigationButton");
         const hotspot1 = document.querySelector('[slot="hotspot-1"]');
+        const hotspot2 = document.querySelector('[slot="hotspot-2"]');
         
         let interval;
         let isInterpolating = false;
@@ -328,20 +329,24 @@
             score.style.display = "block";
         }
         
-        function showHotspot() {
-            hotspot1.style.display = "flex";          
+        function showHotspot(element) {
+            element.style.display = "flex";          
         }
         
-        function hideHotspot() {
-            hotspot1.style.display = "none";          
+        function hideHotspot(element) {
+            element.style.display = "none";          
         }
         
         function hotspotHandler() {
             if (i == 6) {
-                showHotspot();     
+                showHotspot(hotspot1);     
+            }
+            else if (i == 23) {
+                showHotspot(hotspot2);            
             }
             else {
-                hideHotspot();
+                hideHotspot(hotspot1);
+                hideHotspot(hotspot2);
             }       
         }
                       
