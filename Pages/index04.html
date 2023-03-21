@@ -261,13 +261,14 @@
         btn.onclick = function () {
             CameraFadeOutAnimation();
                       
-            i++;   
-            
-            hotspotHandler();
+            i++;                         
             
             if (i == funcArr.length) {
                 i = 0;
             }
+            
+            hotspotHandler();
+            
             funcArr[i](); // first call function and then, increment the value of i i++ % funcArr.length                   
             temp1 = i + 1;
             console.log("Highlight: " + temp1 + " out of " + funcArr.length);
@@ -280,13 +281,14 @@
         btn1.onclick = function () {
             CameraFadeOutAnimation();
                    
-            i--;
-            
-            hotspotHandler();
+            i--;            
                            
             if (i < 0) {
                 i = funcArr.length-1;
             }
+            
+            hotspotHandler();
+            
             funcArr[i](); // first call function and then, increment the value of i             
             let temp2 = i + 1;
             console.log("Highlight: " + temp2 + " out of " + funcArr.length);
