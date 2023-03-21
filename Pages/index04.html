@@ -77,6 +77,7 @@
             modelViewer2.setAttribute('interaction-prompt', 'auto');
             CameraFadeInAnimation();
             annotation.style.display = 'none'; // Hide the clicked annotation
+            pauseInterpolation();
         }
 
         modelViewer2.querySelectorAll('button').forEach((hotspot) => {
