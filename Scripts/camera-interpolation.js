@@ -15,7 +15,7 @@ const easings = {
 };
 
 // Define the camera positions array (funcArr)
-const funcArr = [
+var funcArr = [
   function () {
                 mv2.cameraOrbit = '90deg 90deg 0.002481m'
                 mv2.cameraTarget = '-0.06967m 0.017m 0.0452m' 
