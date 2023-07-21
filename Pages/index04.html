@@ -310,6 +310,13 @@
         let isInterpolating = false;
         let lastInteractionTime = null;
         const interactionTimeout = 250;
+
+        mv2.addEventListener("scroll", () => {
+            const currentScrollY = window.scrollY;
+            const funcIndex = Math.floor(currentScrollY / (funcArr.length - 1));
+            const func = funcArr[funcIndex];
+            func();
+        });
         
         // Wait for the model to finish loading
         mv2.addEventListener("load", function() {
@@ -432,7 +439,6 @@
     </script>
     <!-- Loads <model-viewer> for browsers: -->
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.0.1/model-viewer.min.js"></script>
-    <script src="../Scripts/camera-interpolation.js"></script>
 </body>
 
 </html>
