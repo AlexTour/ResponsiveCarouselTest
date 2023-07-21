@@ -314,8 +314,14 @@
         mv2.addEventListener("scroll", () => {
             const currentScrollY = window.scrollY;
             const funcIndex = Math.floor(currentScrollY / (funcArr.length - 1));
-            const func = funcArr[funcIndex];
-            func();
+            const nextFuncIndex = funcIndex + 1;
+            if (nextFuncIndex < funcArr.length) {
+                const currentFunc = funcArr[funcIndex];
+                const nextFunc = funcArr[nextFuncIndex];
+                const t = currentScrollY / (funcArr.length - 1);
+                const interpolatedFunc = easeInOutQuad(t, currentFunc, nextFunc);
+                interpolatedFunc();
+            }
         });
         
         // Wait for the model to finish loading
